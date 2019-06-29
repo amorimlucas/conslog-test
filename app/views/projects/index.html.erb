@@ -17,19 +17,21 @@
      
      <tbody>
       <% @projects.each do |project| %>
-        <tr>
-          <td><%= project.nome %></td>
-          <td><%= project.cliente %></td>
-          <td><strong><%= project.estado %></strong></td>
-          <td>
-            <%= link_to 'Ver', project_path(project) %> | 
-            <%= link_to 'Editar', edit_project_path(project)%>
-            <% if project.estado == "Ativo" %> 
-              | <%= link_to 'Concluir', conclude_path(project) %>
-            <% end %> 
-            <!-- <%= link_to 'Arquivar', arquive_path(project)%> -->
-          </td>
-        </tr>
+        <% if !project.arquived %>
+          <tr>
+            <td><%= project.nome %></td>
+            <td><%= project.cliente %></td>
+            <td><strong><%= project.estado %></strong></td>
+            <td>
+              <%= link_to 'Ver', project_path(project) %> | 
+              <%= link_to 'Editar', edit_project_path(project)%>
+              <% if project.estado == "Ativo" %> 
+                | <%= link_to 'Concluir', conclude_path(project) %>
+              <% end %> 
+              | <%= link_to 'Arquivar', arquive_path(project)%>
+            </td>
+          </tr>
+        <% end %>
       <% end %>
       </tbody>
     </table>

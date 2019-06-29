@@ -1923,3 +1923,1665 @@ Processing by ProjectsController#index as HTML
 Completed 200 OK in 60ms (Views: 56.8ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/" for ::1 at 2019-06-29 18:26:16 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 477ms (Views: 453.3ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/projects/conclude/1" for ::1 at 2019-06-29 18:26:22 -0300
+Processing by ProjectsController#conclude as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:41
+  [1m[36mProject Update (0.6ms)[0m  [1m[33mUPDATE "projects" SET "data_de_conclusao" = $1, "estado" = $2, "updated_at" = $3 WHERE "projects"."id" = $4[0m  [["data_de_conclusao", "2019-06-29"], ["estado", "Concluído"], ["updated_at", "2019-06-29 21:26:22.752963"], ["id", 1]]
+  ↳ app/controllers/projects_controller.rb:41
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:41
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 9ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 18:26:22 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 67ms (Views: 64.6ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2653647868787440770)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddArquivedToProjects (20190629212857)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "projects" ADD "arquived" boolean[0m
+  ↳ db/migrate/20190629212857_add_arquived_to_projects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190629212857"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddArquivedToNotes (20190629212912)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "notes" ADD "arquived" boolean[0m
+  ↳ db/migrate/20190629212912_add_arquived_to_notes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190629212912"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2653647868787440770)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/projects" for ::1 at 2019-06-29 18:31:36 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 338ms (Views: 318.1ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 18:31:54 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 64ms (Views: 60.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/arquive/1" for ::1 at 2019-06-29 18:33:29 -0300
+Processing by ProjectsController#arquive as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:47
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:49
+  [1m[36mProject Update (0.8ms)[0m  [1m[33mUPDATE "projects" SET "arquived" = $1, "updated_at" = $2 WHERE "projects"."id" = $3[0m  [["arquived", true], ["updated_at", "2019-06-29 21:33:29.090167"], ["id", 1]]
+  ↳ app/controllers/projects_controller.rb:49
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:49
+Completed 500 Internal Server Error in 228ms (ActiveRecord: 2.1ms)
+
+
+  
+NameError (undefined local variable or method `articles_path' for #<ProjectsController:0x00007fe64d157c10>
+Did you mean?  arquive_path):
+  
+app/controllers/projects_controller.rb:51:in `arquive'
+Started GET "/" for ::1 at 2019-06-29 18:33:40 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 97ms (Views: 80.1ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/projects/arquive/3" for ::1 at 2019-06-29 18:33:48 -0300
+Processing by ProjectsController#arquive as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:47
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:49
+  [1m[36mProject Update (0.4ms)[0m  [1m[33mUPDATE "projects" SET "arquived" = $1, "updated_at" = $2 WHERE "projects"."id" = $3[0m  [["arquived", true], ["updated_at", "2019-06-29 21:33:48.488123"], ["id", 3]]
+  ↳ app/controllers/projects_controller.rb:49
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:49
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 6ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 18:33:48 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 82ms (Views: 78.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/new" for ::1 at 2019-06-29 18:34:10 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 107ms (Views: 104.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for ::1 at 2019-06-29 18:34:35 -0300
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZvLnaw4mKCcQvT6VgoptQ7N6dHWBZfQbK7a0b+zdfA98zms5syve+I/yrS1c2fQA8sXOTneb1/5r2yLp94QR+g==", "project"=>{"nome"=>"Projeto 4", "cliente"=>"Sebastião Gonzaga"}, "commit"=>"Save Project"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:23
+  [1m[36mProject Create (0.8ms)[0m  [1m[32mINSERT INTO "projects" ("nome", "cliente", "estado", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["nome", "Projeto 4"], ["cliente", "Sebastião Gonzaga"], ["estado", "Ativo"], ["created_at", "2019-06-29 21:34:35.007234"], ["updated_at", "2019-06-29 21:34:35.007234"]]
+  ↳ app/controllers/projects_controller.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:23
+Redirected to http://localhost:3000/projects/4
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/projects/4" for ::1 at 2019-06-29 18:34:35 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 4]]
+  ↳ app/views/projects/show.html.erb:12
+  Rendered projects/show.html.erb within layouts/application (30.9ms)
+Completed 200 OK in 78ms (Views: 68.8ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 18:34:38 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 64ms (Views: 60.9ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2653647868787440770)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddArquivedDateToNotes (20190629213552)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "notes" ADD "arquived_date" date[0m
+  ↳ db/migrate/20190629213552_add_arquived_date_to_notes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190629213552"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddArquivedDateToProjects (20190629213608)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "projects" ADD "arquived_date" date[0m
+  ↳ db/migrate/20190629213608_add_arquived_date_to_projects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190629213608"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2653647868787440770)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/projects" for ::1 at 2019-06-29 18:36:24 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 402ms (Views: 381.0ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 18:36:48 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 57ms (Views: 53.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/arquive/1" for ::1 at 2019-06-29 18:36:51 -0300
+Processing by ProjectsController#arquive as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:47
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:49
+  [1m[36mProject Update (0.7ms)[0m  [1m[33mUPDATE "projects" SET "arquived" = $1, "updated_at" = $2 WHERE "projects"."id" = $3[0m  [["arquived", true], ["updated_at", "2019-06-29 21:36:51.927454"], ["id", 1]]
+  ↳ app/controllers/projects_controller.rb:49
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:49
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 41ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 18:36:51 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 70ms (Views: 66.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 18:37:13 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 107ms (Views: 93.4ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/projects/arquive/1" for ::1 at 2019-06-29 18:37:16 -0300
+Processing by ProjectsController#arquive as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:47
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:50
+  [1m[36mProject Update (0.4ms)[0m  [1m[33mUPDATE "projects" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "projects"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-29"], ["updated_at", "2019-06-29 21:37:16.282162"], ["id", 1]]
+  ↳ app/controllers/projects_controller.rb:50
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:50
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 18:37:16 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 73ms (Views: 70.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/2" for ::1 at 2019-06-29 18:37:41 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.6ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:12
+  Rendered projects/show.html.erb within layouts/application (43.2ms)
+Completed 200 OK in 104ms (Views: 89.0ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 18:39:09 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 52ms (Views: 47.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/2" for ::1 at 2019-06-29 18:45:54 -0300
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:12
+  Rendered projects/show.html.erb within layouts/application (28.4ms)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 10.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `notes' for nil:NilClass):
+    24:     </thead>
+    25:    
+    26:    <tbody>
+    27:     <% @projects.notes.each do |note| %>
+    28:       <% if !note.arquived %>
+    29:         <tr>
+    30:           <td><%= note.texto %></td>
+  
+app/views/projects/show.html.erb:27:in `_app_views_projects_show_html_erb___3404555579638398674_70363305762740'
+Started GET "/projects/2" for ::1 at 2019-06-29 18:46:41 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.9ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:20
+  Rendered projects/show.html.erb within layouts/application (41.9ms)
+Completed 200 OK in 453ms (Views: 419.0ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 18:47:03 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 66ms (Views: 62.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:47:07 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:20
+  Rendered projects/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 73ms (Views: 68.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 18:47:11 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 75ms (Views: 72.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:47:29 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:20
+  Rendered projects/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 85ms (Views: 78.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/projects/3/notes" for ::1 at 2019-06-29 18:47:34 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GjcV9C9h9jFXWRs+SiOVm/4BMbJo/2qPQ/jZyVWpj38w3E3lwNVmLT4po62uClr02fB90dPtK0/Bm2+LixY/eg==", "note"=>{"texto"=>"Nova nota"}, "commit"=>"Create Note", "project_id"=>"3"}
+  [1m[36mProject Load (3.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (1.2ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "Nova nota"], ["project_id", 3], ["created_at", "2019-06-29 21:47:34.898226"], ["updated_at", "2019-06-29 21:47:34.898226"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+Redirected to http://localhost:3000/projects/3
+Completed 302 Found in 12ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:47:34 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:20
+  Rendered projects/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 64ms (Views: 58.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:48:59 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:12
+  Rendered projects/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 54ms (Views: 49.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:49:17 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:12
+  Rendered projects/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 61ms (Views: 56.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:49:39 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:12
+  Rendered projects/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 70ms (Views: 65.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:50:13 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:22
+  Rendered projects/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 53ms (Views: 48.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:50:36 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:22
+  Rendered projects/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 74ms (Views: 69.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:50:46 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 62ms (Views: 58.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:51:32 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 62ms (Views: 57.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:52:46 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 52ms (Views: 48.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:52:58 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 52ms (Views: 47.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:54:24 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (133.0ms)
+Completed 500 Internal Server Error in 144ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `octicon' for #<#<Class:0x00007f9d7047a968>:0x00007f9d72588060>):
+    47:   </p>
+    48: <% end %>
+    49: 
+    50: <%= octicon "arrow-left" %> <%= link_to 'Voltar Para Lista de Projetos', projects_path %>
+  
+app/views/projects/show.html.erb:50:in `_app_views_projects_show_html_erb___1440334355584797041_70157102500840'
+Started GET "/projects/3" for ::1 at 2019-06-29 18:55:13 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 57ms (Views: 52.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:55:21 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 57ms (Views: 51.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:56:34 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 49ms (Views: 45.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:57:15 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 56ms (Views: 52.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:57:38 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 47ms (Views: 43.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:57:48 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 60ms (Views: 56.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:58:44 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 51ms (Views: 47.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 18:59:03 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 67ms (Views: 62.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/arquive/2" for ::1 at 2019-06-29 18:59:18 -0300
+Processing by ProjectsController#arquive as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:47
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:50
+  [1m[36mProject Update (0.5ms)[0m  [1m[33mUPDATE "projects" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "projects"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-29"], ["updated_at", "2019-06-29 21:59:18.538218"], ["id", 2]]
+  ↳ app/controllers/projects_controller.rb:50
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:50
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 6ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 18:59:18 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 59ms (Views: 55.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/3" for ::1 at 2019-06-29 19:00:19 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 3]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 100ms (Views: 71.0ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 19:00:22 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 63ms (Views: 59.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/4" for ::1 at 2019-06-29 19:00:24 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 4]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 50ms (Views: 46.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/projects/4/notes" for ::1 at 2019-06-29 19:00:32 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VySfBd5OY46yFZC5rkGTPNWfKXKLnufHt5tXurmkKuDKY1GYoDhnpIUwvecYdIIpseUBxoao0ALu76QOWUedWw==", "note"=>{"texto"=>"Nova nota do Lucas"}, "commit"=>"Criar Nota", "project_id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.5ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "Nova nota do Lucas"], ["project_id", 4], ["created_at", "2019-06-29 22:00:32.352634"], ["updated_at", "2019-06-29 22:00:32.352634"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+Redirected to http://localhost:3000/projects/4
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/projects/4" for ::1 at 2019-06-29 19:00:32 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 4]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 65ms (Views: 61.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/4" for ::1 at 2019-06-29 19:03:18 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 4]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (36.3ms)
+Completed 200 OK in 427ms (Views: 381.9ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/notes/arquive/3" for ::1 at 2019-06-29 19:03:21 -0300
+Processing by NotesController#arquive as HTML
+  Parameters: {"id"=>"3"}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Project without an ID):
+  
+app/controllers/notes_controller.rb:9:in `arquive'
+Started GET "/projects/4" for ::1 at 2019-06-29 19:04:12 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 4]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 82ms (Views: 59.4ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/notes/arquive/3" for ::1 at 2019-06-29 19:04:15 -0300
+Processing by NotesController#arquive as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:9
+Redirected to http://localhost:3000/projects/4
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/4" for ::1 at 2019-06-29 19:04:15 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 4]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 59ms (Views: 53.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/4" for ::1 at 2019-06-29 19:04:56 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.9ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 4]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (37.3ms)
+Completed 200 OK in 426ms (Views: 367.6ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/notes/arquive/3" for ::1 at 2019-06-29 19:04:58 -0300
+Processing by NotesController#arquive as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:9
+Redirected to http://localhost:3000/projects/4
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/4" for ::1 at 2019-06-29 19:04:58 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 4]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 86ms (Views: 82.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 19:05:39 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 64ms (Views: 59.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:05:42 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 75ms (Views: 71.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:07:36 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (28.8ms)
+Completed 200 OK in 341ms (Views: 307.6ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/notes/arquive/1" for ::1 at 2019-06-29 19:07:38 -0300
+Processing by NotesController#arquive as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:12
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:12
+  [1m[36mNote Update (0.6ms)[0m  [1m[33mUPDATE "notes" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "notes"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-29"], ["updated_at", "2019-06-29 22:07:38.921923"], ["id", 1]]
+  ↳ app/controllers/notes_controller.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:12
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 9ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:07:38 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 78ms (Views: 73.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/projects/1/notes" for ::1 at 2019-06-29 19:07:48 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2YEyex5ehMCUP53LCokU4IfVzwJkV0E2kfvIoIteos5l3s9fr0t3sUdemfGrNdnDg4JJ4n2BSmk3HtL0Veedyw==", "note"=>{"texto"=>"Minha nova nota para projeto 1"}, "commit"=>"Criar Nota", "project_id"=>"1"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.9ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "Minha nova nota para projeto 1"], ["project_id", 1], ["created_at", "2019-06-29 22:07:48.063584"], ["updated_at", "2019-06-29 22:07:48.063584"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:07:48 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (1.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 65ms (Views: 59.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:09:28 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (0.6ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 112ms (Views: 104.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:09:33 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 75ms (Views: 70.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/notes/arquive/4" for ::1 at 2019-06-29 19:09:35 -0300
+Processing by NotesController#arquive as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:12
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:12
+  [1m[36mNote Update (0.6ms)[0m  [1m[33mUPDATE "notes" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "notes"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-29"], ["updated_at", "2019-06-29 22:09:35.292363"], ["id", 4]]
+  ↳ app/controllers/notes_controller.rb:12
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:12
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 7ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:09:35 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (1.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 58ms (Views: 53.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:09:36 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 62ms (Views: 57.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:09:55 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (42.7ms)
+Completed 200 OK in 431ms (Views: 389.8ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:12:47 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  Rendered projects/show.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 113ms (Views: 61.6ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:13:28 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  Rendered projects/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 78ms (Views: 73.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:13:30 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  Rendered projects/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 69ms (Views: 64.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:13:43 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  Rendered projects/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 63ms (Views: 57.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:14:20 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  Rendered projects/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 57ms (Views: 52.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:14:30 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  Rendered projects/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 69ms (Views: 64.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/projects/1/notes" for ::1 at 2019-06-29 19:14:39 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FQGMQ8htMJi7xmVDE82EGd5tsDnfcxdclwR188+qUZTJUykhfYVJbod/uJ9MNkwBTwTG8qD5MdntQm5sjsISxw==", "note"=>{"texto"=>"Minha nova nota"}, "commit"=>"Criar Nota", "project_id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (1.2ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "Minha nova nota"], ["project_id", 1], ["created_at", "2019-06-29 22:14:39.059497"], ["updated_at", "2019-06-29 22:14:39.059497"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[36mNote Update (0.6ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2 WHERE "notes"."id" = $3[0m  [["updated_at", "2019-06-29 22:14:39.063364"], ["arquived", false], ["id", 5]]
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:6
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 12ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:14:39 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 76ms (Views: 68.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/projects/1/notes" for ::1 at 2019-06-29 19:14:47 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WUdCgxwg5PadctMm7m4EOkJT2q3KXPWY+b9qg/Rj9OWFFefhqcidAKHLDvqxlcwi0zqsZrXW0x2D+XEctQu3tg==", "note"=>{"texto"=>"Minha outra nota"}, "commit"=>"Criar Nota", "project_id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.9ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "Minha outra nota"], ["project_id", 1], ["created_at", "2019-06-29 22:14:47.119235"], ["updated_at", "2019-06-29 22:14:47.119235"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[36mNote Update (0.6ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2 WHERE "notes"."id" = $3[0m  [["updated_at", "2019-06-29 22:14:47.123190"], ["arquived", false], ["id", 6]]
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:6
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 11ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:14:47 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 52ms (Views: 47.6ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/projects/1/notes" for ::1 at 2019-06-29 19:14:54 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qHkACakUjyGUsaPe6xEdeRfNwbpGXctW4bS878RKJjV0K6VrHPz216gIfgK06tVhhqS3cTnX7dOb8qdwhSJlZg==", "note"=>{"texto"=>"Uma nova nota"}, "commit"=>"Criar Nota", "project_id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.5ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "Uma nova nota"], ["project_id", 1], ["created_at", "2019-06-29 22:14:54.653469"], ["updated_at", "2019-06-29 22:14:54.653469"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[36mNote Update (0.4ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2 WHERE "notes"."id" = $3[0m  [["updated_at", "2019-06-29 22:14:54.656491"], ["arquived", false], ["id", 7]]
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:6
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 8ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:14:54 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 54ms (Views: 49.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/notes/arquive/5" for ::1 at 2019-06-29 19:14:58 -0300
+Processing by NotesController#arquive as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:15
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:15
+  [1m[36mNote Update (0.4ms)[0m  [1m[33mUPDATE "notes" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "notes"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-29"], ["updated_at", "2019-06-29 22:14:58.847434"], ["id", 5]]
+  ↳ app/controllers/notes_controller.rb:15
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:15
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 7ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:14:58 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 57ms (Views: 53.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:15:23 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (0.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 94ms (Views: 86.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:15:34 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 69ms (Views: 63.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:15:38 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 57ms (Views: 52.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 19:16:38 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 59ms (Views: 53.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/new" for ::1 at 2019-06-29 19:16:40 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 63ms (Views: 60.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects/new" for ::1 at 2019-06-29 19:17:39 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 49ms (Views: 46.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects/new" for ::1 at 2019-06-29 19:18:11 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 49ms (Views: 45.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects/new" for ::1 at 2019-06-29 19:18:42 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lamorim/Workspace/conslog-test/app/views/projects/new.html.erb:20: syntax error, unexpected tLABEL, expecting '='
+...er.append=( form.submit, class: "btn btn-lg btn-primary" );@...
+...                               ^):
+  
+app/views/projects/new.html.erb:20: syntax error, unexpected tLABEL, expecting '='
+Started GET "/projects/new" for ::1 at 2019-06-29 19:19:35 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/lamorim/Workspace/conslog-test/app/views/projects/new.html.erb:20: syntax error, unexpected tLABEL, expecting '='
+...er.append=( form.submit, class: 'btn btn-lg btn-primary' );@...
+...                               ^):
+  
+app/views/projects/new.html.erb:20: syntax error, unexpected tLABEL, expecting '='
+Started GET "/projects/new" for ::1 at 2019-06-29 19:20:05 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 49ms (Views: 46.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects/new" for ::1 at 2019-06-29 19:20:27 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 54ms (Views: 51.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects/new" for ::1 at 2019-06-29 19:20:58 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 70ms (Views: 65.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects/new" for ::1 at 2019-06-29 19:21:28 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 74ms (Views: 70.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for ::1 at 2019-06-29 19:21:44 -0300
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4gFVIt+JIQbarXKC7TocQdMx/POlyFalZhd2T0yPl2U+U/BAamFY8OYUr16ywdRZQliKONpCcCAcUW3QDefUNg==", "project"=>{"nome"=>"Novo projeto do Lucas", "cliente"=>"Lucas Amorim"}, "commit"=>"Criar Projeto"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:24
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("nome", "cliente", "estado", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["nome", "Novo projeto do Lucas"], ["cliente", "Lucas Amorim"], ["estado", "Ativo"], ["created_at", "2019-06-29 22:21:44.498124"], ["updated_at", "2019-06-29 22:21:44.498124"]]
+  ↳ app/controllers/projects_controller.rb:24
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:24
+Redirected to http://localhost:3000/projects/5
+Completed 302 Found in 4ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/projects/5" for ::1 at 2019-06-29 19:21:44 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 5]]
+  ↳ app/views/projects/show.html.erb:16
+  Rendered projects/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 55ms (Views: 50.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 19:21:50 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 61ms (Views: 57.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/arquive/1" for ::1 at 2019-06-29 19:22:18 -0300
+Processing by ProjectsController#arquive as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:48
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:51
+  [1m[36mProject Update (0.5ms)[0m  [1m[33mUPDATE "projects" SET "arquived" = $1, "updated_at" = $2 WHERE "projects"."id" = $3[0m  [["arquived", true], ["updated_at", "2019-06-29 22:22:18.615846"], ["id", 1]]
+  ↳ app/controllers/projects_controller.rb:51
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:51
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 19:22:18 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 51ms (Views: 47.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/4" for ::1 at 2019-06-29 19:22:21 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 4]]
+  ↳ app/views/projects/show.html.erb:16
+  Rendered projects/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 47ms (Views: 42.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/projects/4/notes" for ::1 at 2019-06-29 19:22:25 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QZlJe19+sq9vpQ1TmKlEI2eoLd9p3ueuvDYnz6PQIG3c3ofmIQi2hViAIA0unFU2A9IFa2To0GvlQtR7QzOX1g==", "note"=>{"texto"=>"Minha nova nota"}, "commit"=>"Criar Nota", "project_id"=>"4"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.5ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "Minha nova nota"], ["project_id", 4], ["created_at", "2019-06-29 22:22:25.808517"], ["updated_at", "2019-06-29 22:22:25.808517"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[36mNote Update (0.6ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2 WHERE "notes"."id" = $3[0m  [["updated_at", "2019-06-29 22:22:25.811742"], ["arquived", false], ["id", 8]]
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:6
+Redirected to http://localhost:3000/projects/4
+Completed 302 Found in 8ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/projects/4" for ::1 at 2019-06-29 19:22:25 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 4]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 4]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 54ms (Views: 48.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/notes/arquive/8" for ::1 at 2019-06-29 19:22:27 -0300
+Processing by NotesController#arquive as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:15
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:15
+  [1m[36mNote Update (0.4ms)[0m  [1m[33mUPDATE "notes" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "notes"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-29"], ["updated_at", "2019-06-29 22:22:27.716483"], ["id", 8]]
+  ↳ app/controllers/notes_controller.rb:15
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:15
+Redirected to http://localhost:3000/projects/4
+Completed 302 Found in 6ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/projects/4" for ::1 at 2019-06-29 19:22:27 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 4]]
+  ↳ app/views/projects/show.html.erb:16
+  [1m[36mNote Load (0.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 4]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 47ms (Views: 42.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/4" for ::1 at 2019-06-29 19:25:25 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (compared with non class/module):
+    13: </h3>
+    14: 
+    15: 
+    16: <% if @unarquived_notes_count > 0 %>
+    17: <br>
+    18:   <table class="table table-striped">
+    19:     <thead class="thead-dark">
+  
+app/views/projects/show.html.erb:16:in `_app_views_projects_show_html_erb___3361226737772152291_70343688425200'
+Started GET "/" for ::1 at 2019-06-29 19:26:08 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 62ms (Views: 56.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/4" for ::1 at 2019-06-29 19:26:10 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (compared with non class/module):
+    13: </h3>
+    14: 
+    15: 
+    16: <% if @unarquived_notes_count > 0 %>
+    17: <br>
+    18:   <table class="table table-striped">
+    19:     <thead class="thead-dark">
+  
+app/views/projects/show.html.erb:16:in `_app_views_projects_show_html_erb___3361226737772152291_70343688000300'
+Started GET "/projects/4" for ::1 at 2019-06-29 19:26:37 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 4], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:8
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 84ms (Views: 52.9ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 19:26:42 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 59ms (Views: 54.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/5" for ::1 at 2019-06-29 19:26:45 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 5], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:8
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 54ms (Views: 48.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/projects/5/notes" for ::1 at 2019-06-29 19:26:48 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aLh70yocBN3GaJvYlp9DyN7lxvzmrDhByxQAIkVYpSqeUS7eDGEOwY7w3ttd2SheDgp/9tFWWQMn3bNKpdVbsA==", "note"=>{"texto"=>"nova nota"}, "commit"=>"Criar Nota", "project_id"=>"5"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.6ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "nova nota"], ["project_id", 5], ["created_at", "2019-06-29 22:26:48.950974"], ["updated_at", "2019-06-29 22:26:48.950974"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[36mNote Update (0.4ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2 WHERE "notes"."id" = $3[0m  [["updated_at", "2019-06-29 22:26:48.953690"], ["arquived", false], ["id", 9]]
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:6
+Redirected to http://localhost:3000/projects/5
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/projects/5" for ::1 at 2019-06-29 19:26:48 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 5], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:8
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 5]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 55ms (Views: 47.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/notes/arquive/9" for ::1 at 2019-06-29 19:26:50 -0300
+Processing by NotesController#arquive as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:15
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:15
+  [1m[36mNote Update (0.4ms)[0m  [1m[33mUPDATE "notes" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "notes"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-29"], ["updated_at", "2019-06-29 22:26:50.440193"], ["id", 9]]
+  ↳ app/controllers/notes_controller.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:15
+Redirected to http://localhost:3000/projects/5
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/projects/5" for ::1 at 2019-06-29 19:26:50 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 5], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:8
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 46ms (Views: 41.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 19:26:52 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 54ms (Views: 50.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-29 19:27:11 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:19
+  Rendered projects/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 47ms (Views: 43.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:27:12 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 1], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:8
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 64ms (Views: 57.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/projects/1" for ::1 at 2019-06-29 19:27:30 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:7
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 1], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:8
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1[0m  [["project_id", 1]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 66ms (Views: 60.7ms | ActiveRecord: 1.0ms)
+
+

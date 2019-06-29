@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_29_182939) do
+ActiveRecord::Schema.define(version: 2019_06_29_213608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_06_29_182939) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "arquived"
+    t.date "arquived_date"
     t.index ["project_id"], name: "index_notes_on_project_id"
   end
 
@@ -30,6 +32,8 @@ ActiveRecord::Schema.define(version: 2019_06_29_182939) do
     t.string "estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "arquived"
+    t.date "arquived_date"
   end
 
   add_foreign_key "notes", "projects"

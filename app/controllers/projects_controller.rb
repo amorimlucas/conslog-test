@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
 	def show
 		@project = Project.find(params[:id])
+		@unarquived_notes_count = @project.notes.where(arquived: false).count;
 	end
 
 	def new 
@@ -44,11 +45,12 @@ class ProjectsController < ApplicationController
 	end
 
   	def arquive
-		#@project = Project.find(params[:id])
-		#@project.arquived = true;
-		#@project.save
+		@project = Project.find(params[:id])
+		@project.arquived = true;
+		@project.arquived_date = DateTime.now;
+		@project.save
 
-		#redirect_to articles_path
+		redirect_to projects_path
 	end
 
   	private

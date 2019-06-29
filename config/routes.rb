@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   	get 'projects/conclude/:id', to: 'projects#conclude', as: 'conclude'
   	get 'projects/arquive/:id', to: 'projects#arquive', as: 'arquive'
 
+  	get 'notes/arquive/:id', to: 'notes#arquive', as: 'arquive_note'
+
 end

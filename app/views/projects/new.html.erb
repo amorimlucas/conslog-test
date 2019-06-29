@@ -1,0 +1,17 @@
+<%= form_with scope: :project, url: projects_path, local: true do |form| %>
+  <p>
+    <%= form.label :nome %><br>
+    <%= form.text_field :nome %>
+  </p>
+ 
+  <p>
+    <%= form.label :cliente %><br>
+    <%= form.text_field :cliente %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+
+  <%= link_to 'Back', projects_path %>
+<% end %>

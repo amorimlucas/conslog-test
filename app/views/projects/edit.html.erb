@@ -1,0 +1,21 @@
+<h1>Editar projeto</h1>
+ 
+<%= form_with(model: @project, local: true) do |form| %>
+ 
+  <p>
+    <%= form.label :nome %><br>
+    <%= form.text_field :nome %>
+  </p>
+ 
+  <p>
+    <%= form.label :cliente %><br>
+    <%= form.text_field :cliente %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Back', projects_path %>

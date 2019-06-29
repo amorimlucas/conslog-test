@@ -8,4 +8,23 @@
   <%= @project.cliente %>
 </p>
 
+<h2>Notas</h2>
+<% @project.notes.each do |note| %>
+  <p>
+    <%= note.texto %>
+  </p>
+<% end %>
+
+<h2>Nova nota:</h2>
+<%= form_with(model: [ @project, @project.notes.build ], local: true) do |form| %>
+
+  <p>
+    <%= form.text_area :texto %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

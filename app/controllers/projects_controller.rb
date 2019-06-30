@@ -7,7 +7,6 @@ class ProjectsController < ApplicationController
 	def show
 		@project = Project.find(params[:id])
 		@unarquived_notes_count = @project.notes.where(arquived: false).count;
-
 	end
 
 	def new 
@@ -23,8 +22,12 @@ class ProjectsController < ApplicationController
 		@project.data_de_conclusao = nil;
 		@project.estado = "Ativo";
 
-		@project.save
-		redirect_to @project
+		if @project.save
+	    	redirect_to @project
+	  	else
+	    	render 'new'
+	  	end
+		
 	end
 
 	def update

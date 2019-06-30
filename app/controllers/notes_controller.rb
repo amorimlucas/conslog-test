@@ -4,8 +4,15 @@ class NotesController < ApplicationController
 		@comment = @project.notes.create(note_params)
 		@comment.arquived = false
 		@comment.save
+
+		if @comment.save
+	    	redirect_to project_path(@project)
+	  	else
+	  		@unarquived_notes_count = @project.notes.where(arquived: false).count;
+	    	render template: "projects/show"
+	  	end
 		
-		redirect_to project_path(@project)
+		
 	end
 
 	def arquive

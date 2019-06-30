@@ -5,6 +5,21 @@
 
     <br>
 
+    <div style="color: red">
+      <% if @project.errors.any? %>
+        <div id="error_explanation">
+          <p>
+            <strong>Alguns errors impediram esse novo projeto de ser criado.</strong>
+          </p>
+          <ul>
+            <% @project.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
     <%= form_with scope: :project, url: projects_path, local: true do |form| %>
       <p>
         <strong><%= form.label :nome %><br></strong>

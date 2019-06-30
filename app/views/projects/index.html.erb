@@ -1,40 +1,46 @@
 <div class="row">
   <div class="col"></div>
-  <div class="col-md-10">
+  <div class="col-md-12">
     <h1 style="text-align: center; margin-top: 5%;">Projetos de Arquitetura</h1>
 
     <br>
 
-    <table class="table table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th>Nome</th>
-          <th>Cliente</th>
-          <th>Estado</th>
-          <th>Ação</th>
-        </tr>
-      </thead>
-     
-     <tbody>
-      <% @projects.each do |project| %>
-        <% if !project.arquived %>
+    <%= form_tag("projects/bulk_arquive", authenticity_token: true, id: "bulk-arquive-form") do %> 
+      <table class="table table-striped">
+        <thead class="thead-dark">
           <tr>
-            <td><%= project.nome %></td>
-            <td><%= project.cliente %></td>
-            <td><strong><%= project.estado %></strong></td>
-            <td>
-              <%= link_to 'Ver', project_path(project) %> | 
-              <%= link_to 'Editar', edit_project_path(project)%>
-              <% if project.estado == "Ativo" %> 
-                | <%= link_to 'Concluir', conclude_path(project) %>
-              <% end %> 
-              | <%= link_to 'Arquivar', arquive_path(project)%>
-            </td>
+            <th>Nome</th>
+            <th>Cliente</th>
+            <th>Estado</th>
+            <th>Ação</th>
+            <th>Arquivar Juntos</th>
           </tr>
+        </thead>
+       
+       <tbody>
+        <% @projects.each do |project| %>
+          <% if !project.arquived %>
+            <tr>
+              <td><%= project.nome %></td>
+              <td><%= project.cliente %></td>
+              <td><strong><%= project.estado %></strong></td>
+              <td>
+                <%= link_to 'Ver', project_path(project) %> | 
+                <%= link_to 'Editar', edit_project_path(project)%>
+                <% if project.estado == "Ativo" %> 
+                  | <%= link_to 'Concluir', conclude_path(project) %>
+                <% end %> 
+                | <%= link_to 'Arquivar', arquive_path(project)%>
+              </td>
+              <td><%= check_box_tag 'project_ids[]', project.id, false, class: "bulk_checkbox" %> </td>
+            </tr>
+          <% end %>
         <% end %>
-      <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+
+      <%= submit_tag "Arquivar Projetos", class: 'btn btn-md btn-primary float-right bulk-arquive-btn', disabled: true %>
+    <% end %>
 
     <br>
 

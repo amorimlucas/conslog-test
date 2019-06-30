@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   	root 'projects#index'
   	get 'projects/conclude/:id', to: 'projects#conclude', as: 'conclude'
   	get 'projects/arquive/:id', to: 'projects#arquive', as: 'arquive'
+  	post 'projects/bulk_arquive', to: 'projects#bulk_arquive', as: 'bulk_arquive'
 
   	get 'notes/arquive/:id', to: 'notes#arquive', as: 'arquive_note'
 

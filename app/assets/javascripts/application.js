@@ -11,8 +11,17 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+jQuery(document).ready(function($) {
+	$(".bulk_checkbox").click(function () {
+		$(".bulk-arquive-btn").prop('disabled', false);
+	});
+});
+

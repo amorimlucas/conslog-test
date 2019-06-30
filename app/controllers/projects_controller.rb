@@ -1,11 +1,13 @@
 class ProjectsController < ApplicationController
 	def index
 		@projects = Project.all
+		@projects = @projects.order(created_at: :desc)
 	end
 
 	def show
 		@project = Project.find(params[:id])
 		@unarquived_notes_count = @project.notes.where(arquived: false).count;
+
 	end
 
 	def new 
@@ -53,8 +55,23 @@ class ProjectsController < ApplicationController
 		redirect_to projects_path
 	end
 
+	def bulk_arquive
+		params[:project_ids].each do |id|
+			@project = Project.find(id)
+			@project.arquived = true;
+			@project.arquived_date = DateTime.now;
+			@project.save
+		end
+
+		redirect_to projects_path
+	end
+
   	private
 		def project_params
 			params.require(:project).permit(:nome, :cliente)
+		end
+
+		def bulk_arquive_params
+			params.require(:project).permit(:project_ids)
 		end
 end

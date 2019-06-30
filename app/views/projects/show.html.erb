@@ -24,7 +24,7 @@
     </thead>
    
    <tbody>
-    <% @project.notes.each do |note| %>
+    <% @project.notes.order(created_at: :desc).each do |note| %>
       <% if !note.arquived %>
         <tr>
           <td><%= note.texto %></td>

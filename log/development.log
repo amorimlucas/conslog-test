@@ -7026,3 +7026,1709 @@ Processing by ProjectsController#index as HTML
 Completed 200 OK in 91ms (Views: 87.3ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/" for ::1 at 2019-06-30 11:55:26 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 470ms (Views: 443.4ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/projects/new" for ::1 at 2019-06-30 11:55:42 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 150ms (Views: 145.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for ::1 at 2019-06-30 11:55:49 -0300
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T1FbDMwlgkiqBkREIAjQn09pU7F7q/cUMqGVVONnYFqWOquMR4nnJPEJaY5uBSBW4F4TN8oodmYVLJ2ZU3tEcQ==", "project"=>{"nome"=>"Meu novo projeto", "cliente"=>"Lucas"}, "commit"=>"Criar Projeto"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:25
+  [1m[36mProject Create (0.8ms)[0m  [1m[32mINSERT INTO "projects" ("nome", "cliente", "estado", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["nome", "Meu novo projeto"], ["cliente", "Lucas"], ["estado", "Ativo"], ["created_at", "2019-06-30 14:55:49.230330"], ["updated_at", "2019-06-30 14:55:49.230330"]]
+  ↳ app/controllers/projects_controller.rb:25
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:25
+Redirected to http://localhost:3000/projects/72
+Completed 302 Found in 9ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/projects/72" for ::1 at 2019-06-30 11:55:49 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 72], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 123ms (Views: 75.2ms | ActiveRecord: 11.0ms)
+
+
+Started POST "/projects/72/notes" for ::1 at 2019-06-30 11:56:01 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SrpXdMeOejSPteJeUR1NmIaLIpiXAab1+fZLqQSByNrpLhNOm2U+0Wc2CnGvpk7O/UcA8ReqEyRrU3r51U3neQ==", "note"=>{"texto"=>"Minha nova nota"}, "commit"=>"Criar Nota", "project_id"=>"72"}
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.9ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "Minha nova nota"], ["project_id", 72], ["created_at", "2019-06-30 14:56:01.300021"], ["updated_at", "2019-06-30 14:56:01.300021"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[36mNote Update (1.4ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2 WHERE "notes"."id" = $3[0m  [["updated_at", "2019-06-30 14:56:01.303529"], ["arquived", false], ["id", 16]]
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:8
+Redirected to http://localhost:3000/projects/72
+Completed 302 Found in 17ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/projects/72" for ::1 at 2019-06-30 11:56:01 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 72], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 72]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 83ms (Views: 71.5ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/projects/72/notes" for ::1 at 2019-06-30 11:56:06 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WJHyrRktxx9LL8kIIdSPpjbhbfWo5kNOx9CEWXY3A7/7BbaXRcaD+qOsISffb4zwTS1PnChN9p9VdbUJp/ssHA==", "note"=>{"texto"=>"Outra nota"}, "commit"=>"Criar Nota", "project_id"=>"72"}
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.5ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "Outra nota"], ["project_id", 72], ["created_at", "2019-06-30 14:56:06.269301"], ["updated_at", "2019-06-30 14:56:06.269301"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[36mNote Update (0.5ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2 WHERE "notes"."id" = $3[0m  [["updated_at", "2019-06-30 14:56:06.273270"], ["arquived", false], ["id", 17]]
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:8
+Redirected to http://localhost:3000/projects/72
+Completed 302 Found in 14ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/projects/72" for ::1 at 2019-06-30 11:56:06 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 72], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 72]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 103ms (Views: 93.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2019-06-30 11:57:24 -0300
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 470ms (Views: 438.3ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/projects/new" for ::1 at 2019-06-30 11:57:34 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 144ms (Views: 137.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for ::1 at 2019-06-30 11:57:44 -0300
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dnglbSlwcrOxqAjDDyRztF1aM2cMhn7nAHmXCgoBUgGvE9XtotwX3+qnJQlBKYN98m1z4b0F/5Un9J/Huh12Kg==", "project"=>{"nome"=>"Meu novo projeto", "cliente"=>"Lucas"}, "commit"=>"Criar Projeto"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:25
+  [1m[36mProject Create (0.9ms)[0m  [1m[32mINSERT INTO "projects" ("nome", "cliente", "estado", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["nome", "Meu novo projeto"], ["cliente", "Lucas"], ["estado", "Ativo"], ["created_at", "2019-06-30 14:57:44.373321"], ["updated_at", "2019-06-30 14:57:44.373321"]]
+  ↳ app/controllers/projects_controller.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:25
+Redirected to http://localhost:3000/projects/73
+Completed 302 Found in 8ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-06-30 11:57:44 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 120ms (Views: 87.1ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 11:57:49 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 60ms (Views: 55.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/72" for ::1 at 2019-06-30 11:57:53 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 72], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 72]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 66ms (Views: 55.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 11:58:00 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 97ms (Views: 90.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/2" for ::1 at 2019-06-30 11:58:01 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 2], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 83ms (Views: 74.1ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/projects/2/notes" for ::1 at 2019-06-30 11:58:07 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yNjKaaa33Y+6a8RxHg0XVl7Yew13Z9H3D1yqIsFrJfPUKw7z00tefjWzbk19NkCH2VGftk+Vghd0+9ZA4qjfBw==", "note"=>{"texto"=>"Minha nova nota"}, "commit"=>"Criar Nota", "project_id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (1.0ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "Minha nova nota"], ["project_id", 2], ["created_at", "2019-06-30 14:58:07.781233"], ["updated_at", "2019-06-30 14:58:07.781233"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[36mNote Update (0.8ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2 WHERE "notes"."id" = $3[0m  [["updated_at", "2019-06-30 14:58:07.784635"], ["arquived", false], ["id", 18]]
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:8
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 13ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/projects/2" for ::1 at 2019-06-30 11:58:07 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 2], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 2]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 70ms (Views: 61.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 11:58:10 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 72ms (Views: 67.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-06-30 11:58:11 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 70ms (Views: 60.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 11:58:12 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 81ms (Views: 74.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/72" for ::1 at 2019-06-30 11:58:13 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 72], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 72]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 79ms (Views: 69.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/notes/arquive/17" for ::1 at 2019-06-30 11:58:16 -0300
+Processing by NotesController#arquive as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:22
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:22
+  [1m[36mNote Update (0.5ms)[0m  [1m[33mUPDATE "notes" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "notes"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-30"], ["updated_at", "2019-06-30 14:58:16.339758"], ["id", 17]]
+  ↳ app/controllers/notes_controller.rb:22
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:22
+Redirected to http://localhost:3000/projects/72
+Completed 302 Found in 8ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/projects/72" for ::1 at 2019-06-30 11:58:16 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"72"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 72], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 72]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 64ms (Views: 55.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 11:58:31 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 69ms (Views: 64.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/conclude/2" for ::1 at 2019-06-30 11:58:36 -0300
+Processing by ProjectsController#conclude as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:47
+  [1m[36mProject Update (0.6ms)[0m  [1m[33mUPDATE "projects" SET "data_de_conclusao" = $1, "estado" = $2, "updated_at" = $3 WHERE "projects"."id" = $4[0m  [["data_de_conclusao", "2019-06-30"], ["estado", "Concluído"], ["updated_at", "2019-06-30 14:58:36.156717"], ["id", 2]]
+  ↳ app/controllers/projects_controller.rb:47
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:47
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 7ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 11:58:36 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 82ms (Views: 77.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/arquive/70" for ::1 at 2019-06-30 11:58:42 -0300
+Processing by ProjectsController#arquive as HTML
+  Parameters: {"id"=>"70"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:53
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:56
+  [1m[36mProject Update (0.5ms)[0m  [1m[33mUPDATE "projects" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "projects"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-30"], ["updated_at", "2019-06-30 14:58:42.264877"], ["id", 70]]
+  ↳ app/controllers/projects_controller.rb:56
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:56
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 11:58:42 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 65ms (Views: 61.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 11:58:45 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 77ms (Views: 71.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/projects/bulk_arquive" for ::1 at 2019-06-30 11:58:54 -0300
+Processing by ProjectsController#bulk_arquive as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"exBPi863IFD+jcOOyIM4dShaUjgpJJkJRh8IqJvKaXzYhAuxklxktRYOK6E2ODsjU5ZwUamPLNjUujn4SgZG3w==", "project_ids"=>["72", "2", "1"], "commit"=>"Arquivar Projetos"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:63
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:66
+  [1m[36mProject Update (0.6ms)[0m  [1m[33mUPDATE "projects" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "projects"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-30"], ["updated_at", "2019-06-30 14:58:54.315898"], ["id", 72]]
+  ↳ app/controllers/projects_controller.rb:66
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:66
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:63
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:66
+  [1m[36mProject Update (0.6ms)[0m  [1m[33mUPDATE "projects" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "projects"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-30"], ["updated_at", "2019-06-30 14:58:54.322002"], ["id", 2]]
+  ↳ app/controllers/projects_controller.rb:66
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:66
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:63
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:66
+  [1m[36mProject Update (0.5ms)[0m  [1m[33mUPDATE "projects" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "projects"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-30"], ["updated_at", "2019-06-30 14:58:54.326545"], ["id", 1]]
+  ↳ app/controllers/projects_controller.rb:66
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:66
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 17ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 11:58:54 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 101ms (Views: 96.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-06-30 12:01:52 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 462ms (Views: 436.2ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/projects/new" for ::1 at 2019-06-30 12:01:59 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (37.0ms)
+Completed 200 OK in 178ms (Views: 171.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for ::1 at 2019-06-30 12:02:04 -0300
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RKzykXT13D4XBFBzLEB/H0BpY542JHp47b2Ek1CLEZKdxwIR/1m5UkwLfbliTY/W714jGIen+wrKMIxe4Jc1uQ==", "project"=>{"nome"=>"Meu novo projeto", "cliente"=>"Lucas"}, "commit"=>"Criar Projeto"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:25
+  [1m[36mProject Create (0.8ms)[0m  [1m[32mINSERT INTO "projects" ("nome", "cliente", "estado", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["nome", "Meu novo projeto"], ["cliente", "Lucas"], ["estado", "Ativo"], ["created_at", "2019-06-30 15:02:04.743365"], ["updated_at", "2019-06-30 15:02:04.743365"]]
+  ↳ app/controllers/projects_controller.rb:25
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:25
+Redirected to http://localhost:3000/projects/74
+Completed 302 Found in 11ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/projects/74" for ::1 at 2019-06-30 12:02:04 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 74], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 121ms (Views: 85.1ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 12:02:09 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 68ms (Views: 63.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/new" for ::1 at 2019-06-30 12:02:14 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 68ms (Views: 64.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for ::1 at 2019-06-30 12:02:20 -0300
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4GpkRLHUpaX2/QMBMFZnDHxutfhl5mmGYucSgUuJ/Ic5AZTEOnjAya3yLst+W5fF01n1ftRl6PRFahpM+5XYrA==", "project"=>{"nome"=>"Um novo projeto do Lucas", "cliente"=>"Lucas"}, "commit"=>"Criar Projeto"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:25
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("nome", "cliente", "estado", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["nome", "Um novo projeto do Lucas"], ["cliente", "Lucas"], ["estado", "Ativo"], ["created_at", "2019-06-30 15:02:20.831822"], ["updated_at", "2019-06-30 15:02:20.831822"]]
+  ↳ app/controllers/projects_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:25
+Redirected to http://localhost:3000/projects/75
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/75" for ::1 at 2019-06-30 12:02:20 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"75"}
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 75], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 75], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 89ms (Views: 80.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 12:02:23 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 88ms (Views: 83.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/74" for ::1 at 2019-06-30 12:02:26 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 74], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 68ms (Views: 62.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/projects/74/notes" for ::1 at 2019-06-30 12:02:34 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bO+OFwf5X56DJ1VnCJlSaiVU5ROgp6ki6UJP0SPQFF5jQinjehPTobuwd7xXCpyxhsc38XsLRYuoc7YrLrtlcQ==", "note"=>{"texto"=>"Minha nova nota"}, "commit"=>"Criar Nota", "project_id"=>"74"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (1.5ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "Minha nova nota"], ["project_id", 74], ["created_at", "2019-06-30 15:02:34.730217"], ["updated_at", "2019-06-30 15:02:34.730217"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[36mNote Update (0.5ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2 WHERE "notes"."id" = $3[0m  [["updated_at", "2019-06-30 15:02:34.734507"], ["arquived", false], ["id", 19]]
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:8
+Redirected to http://localhost:3000/projects/74
+Completed 302 Found in 13ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/projects/74" for ::1 at 2019-06-30 12:02:34 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 74], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.7ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 74]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 71ms (Views: 64.5ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/projects/74/notes" for ::1 at 2019-06-30 12:02:46 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KK6piMmKzQduN5lIst+ZZFisjIbCFUN6f+66Qxvmg2aLOu2ylWGJ4oa0cWdMZJoyI2Cu70K+9qvtS4sTyiqsxQ==", "note"=>{"texto"=>"Outra nota"}, "commit"=>"Criar Nota", "project_id"=>"74"}
+  [1m[36mProject Load (1.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.6ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "Outra nota"], ["project_id", 74], ["created_at", "2019-06-30 15:02:46.480439"], ["updated_at", "2019-06-30 15:02:46.480439"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[36mNote Update (0.9ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2 WHERE "notes"."id" = $3[0m  [["updated_at", "2019-06-30 15:02:46.483821"], ["arquived", false], ["id", 20]]
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:8
+Redirected to http://localhost:3000/projects/74
+Completed 302 Found in 15ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/projects/74" for ::1 at 2019-06-30 12:02:46 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 74], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 74]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 89ms (Views: 82.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/notes/arquive/19" for ::1 at 2019-06-30 12:02:49 -0300
+Processing by NotesController#arquive as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:19
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:22
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:22
+  [1m[36mNote Update (0.5ms)[0m  [1m[33mUPDATE "notes" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "notes"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-30"], ["updated_at", "2019-06-30 15:02:49.730925"], ["id", 19]]
+  ↳ app/controllers/notes_controller.rb:22
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:22
+Redirected to http://localhost:3000/projects/74
+Completed 302 Found in 11ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/projects/74" for ::1 at 2019-06-30 12:02:49 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 74], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 74]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 64ms (Views: 56.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 12:03:03 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 63ms (Views: 57.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/74/edit" for ::1 at 2019-06-30 12:03:07 -0300
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:17
+  Rendering projects/edit.html.erb within layouts/application
+  Rendered projects/edit.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 71ms (Views: 64.7ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/74" for ::1 at 2019-06-30 12:03:11 -0300
+Processing by ProjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YMAKH0VCE0LIBmA+unFIHSxvg6KudnK73MrT+Ph1k1RgNJGua6LZNTeZjiZbmmQ1mOtDcyQhIT8dDODoOuoKsQ==", "project"=>{"nome"=>"Meu novo projeto (editado)", "cliente"=>"Lucas"}, "commit"=>"Salvar Projeto", "id"=>"74"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:36
+  [1m[36mProject Update (0.6ms)[0m  [1m[33mUPDATE "projects" SET "nome" = $1, "updated_at" = $2 WHERE "projects"."id" = $3[0m  [["nome", "Meu novo projeto (editado)"], ["updated_at", "2019-06-30 15:03:11.926217"], ["id", 74]]
+  ↳ app/controllers/projects_controller.rb:36
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:36
+Redirected to http://localhost:3000/projects/74
+Completed 302 Found in 8ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/projects/74" for ::1 at 2019-06-30 12:03:11 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 74], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 74]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 92ms (Views: 83.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 12:03:15 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 61ms (Views: 56.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/conclude/74" for ::1 at 2019-06-30 12:03:19 -0300
+Processing by ProjectsController#conclude as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:47
+  [1m[36mProject Update (0.8ms)[0m  [1m[33mUPDATE "projects" SET "data_de_conclusao" = $1, "estado" = $2, "updated_at" = $3 WHERE "projects"."id" = $4[0m  [["data_de_conclusao", "2019-06-30"], ["estado", "Concluído"], ["updated_at", "2019-06-30 15:03:19.421784"], ["id", 74]]
+  ↳ app/controllers/projects_controller.rb:47
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:47
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 8ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 12:03:19 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 67ms (Views: 63.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/arquive/75" for ::1 at 2019-06-30 12:03:31 -0300
+Processing by ProjectsController#arquive as HTML
+  Parameters: {"id"=>"75"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 75], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:56
+  [1m[36mProject Update (0.5ms)[0m  [1m[33mUPDATE "projects" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "projects"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-30"], ["updated_at", "2019-06-30 15:03:31.576478"], ["id", 75]]
+  ↳ app/controllers/projects_controller.rb:56
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:56
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 12:03:31 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 66ms (Views: 60.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/new" for ::1 at 2019-06-30 12:03:34 -0300
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 58ms (Views: 53.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for ::1 at 2019-06-30 12:03:49 -0300
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E/4W3Y9sMIdOUAC3cvscRE/LWUsrSpDkpLDWfHmWO6fKleZdBMBV6xVfLX089uyN4PwZzZrJEZaDPd6xyYofjA==", "project"=>{"nome"=>"Projeto 1", "cliente"=>"Lucas Amorim"}, "commit"=>"Criar Projeto"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:25
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("nome", "cliente", "estado", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["nome", "Projeto 1"], ["cliente", "Lucas Amorim"], ["estado", "Ativo"], ["created_at", "2019-06-30 15:03:49.307062"], ["updated_at", "2019-06-30 15:03:49.307062"]]
+  ↳ app/controllers/projects_controller.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:25
+Redirected to http://localhost:3000/projects/76
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/projects/76" for ::1 at 2019-06-30 12:03:49 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"76"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 76], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 66ms (Views: 59.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 12:03:50 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 71ms (Views: 64.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 12:03:55 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 57ms (Views: 52.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/projects/bulk_arquive" for ::1 at 2019-06-30 12:03:59 -0300
+Processing by ProjectsController#bulk_arquive as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9sZ+CjcmSoIu+wajhDuEq0HBiHj2LVd9rNM59vBVOlRVUjowa80OZ8Z47ox6gIf9Og2qEXaG4qw+dgimIZkV9w==", "project_ids"=>["76", "74"], "commit"=>"Arquivar Projetos"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:63
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:66
+  [1m[36mProject Update (0.5ms)[0m  [1m[33mUPDATE "projects" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "projects"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-30"], ["updated_at", "2019-06-30 15:03:59.075720"], ["id", 76]]
+  ↳ app/controllers/projects_controller.rb:66
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:66
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:63
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/projects_controller.rb:66
+  [1m[36mProject Update (0.4ms)[0m  [1m[33mUPDATE "projects" SET "arquived" = $1, "arquived_date" = $2, "updated_at" = $3 WHERE "projects"."id" = $4[0m  [["arquived", true], ["arquived_date", "2019-06-30"], ["updated_at", "2019-06-30 15:03:59.080444"], ["id", 74]]
+  ↳ app/controllers/projects_controller.rb:66
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/projects_controller.rb:66
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 10ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/projects" for ::1 at 2019-06-30 12:03:59 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 63ms (Views: 58.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-02 00:05:22 -0300
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/unicorn:22
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (4.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 457ms (Views: 422.4ms | ActiveRecord: 17.8ms)
+
+
+Started GET "/projects/73" for 127.0.0.1 at 2019-08-02 00:05:52 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 129ms (Views: 93.7ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2019-08-02 00:05:54 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 108ms (Views: 103.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-02 00:08:49 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/unicorn:22
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 421ms (Views: 392.9ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-02 00:08:53 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 51ms (Views: 48.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-02 00:09:43 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/unicorn:22
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 378ms (Views: 350.6ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-08-02 00:21:07 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 100ms (Views: 95.6ms | ActiveRecord: 1.3ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2653647868787440770)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddFileToNotes (20190804220018)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.1ms)[0m  [1m[35mALTER TABLE "notes" ADD "file" character varying[0m
+  ↳ db/migrate/20190804220018_add_file_to_notes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190804220018"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2653647868787440770)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2019-08-04 19:02:57 -0300
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (2.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 470ms (Views: 439.0ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 19:03:04 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 114ms (Views: 72.1ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 19:04:20 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (151.1ms)
+Completed 500 Internal Server Error in 164ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `file_area' for #<ActionView::Helpers::FormBuilder:0x00007fe53f5734e8>
+Did you mean?  file_field):
+    62:     <%= form.submit "Criar Nota", class: 'btn btn-md btn-primary' %>
+    63:   </p>
+    64:   <p>
+    65:     <%= form.file_area :file %>
+    66:   </p>
+    67: <% end %>
+    68: 
+  
+app/views/projects/show.html.erb:65:in `block in _app_views_projects_show_html_erb___3322286652813483815_70311340113140'
+app/views/projects/show.html.erb:57:in `_app_views_projects_show_html_erb___3322286652813483815_70311340113140'
+Started GET "/projects/73" for ::1 at 2019-08-04 19:04:33 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 81ms (Views: 75.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 19:06:49 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (29.8ms)
+Completed 200 OK in 387ms (Views: 324.8ms | ActiveRecord: 12.5ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 19:07:00 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q7o1SkxHyqQqHzOKrXH2mxyF7yz/pNhm0uWRnFnxOF2XMKdAeqQLte6Th6ixq6My8GTqSFszfiZY3lSUd8HZYQ==", "note"=>{"texto"=>"Teste note", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0e5535260 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-3pfa5s.png>, @original_filename="Screen Shot 2019-08-03 at 11.51.52 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-03 at 11.51.52 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+Unpermitted parameter: :file
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (3.2ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "Teste note"], ["project_id", 73], ["created_at", "2019-08-04 22:07:00.387802"], ["updated_at", "2019-08-04 22:07:00.387802"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:7
+  [1m[36mNote Update (0.7ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2 WHERE "notes"."id" = $3[0m  [["updated_at", "2019-08-04 22:07:00.395391"], ["arquived", false], ["id", 21]]
+  ↳ app/controllers/notes_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:9
+Redirected to http://localhost:3000/projects/73
+Completed 302 Found in 17ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 19:07:00 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 96ms (Views: 88.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 19:08:06 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 84ms (Views: 53.9ms | ActiveRecord: 9.9ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 19:08:13 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nW5GKjpo+utO03tg9d5s0HTW/Hr4npr4chcrVDbQ9XVJ5NQgDIs7+opfz0LpBDl5mDf5HlwJPLj4LO5cGOAUSQ==", "note"=>{"texto"=>"teste", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0ee6bf9d8 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-1c8wacp.png>, @original_filename="Screen Shot 2019-08-03 at 11.51.52 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-03 at 11.51.52 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.5ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at", "file") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["texto", "teste"], ["project_id", 73], ["created_at", "2019-08-04 22:08:13.016610"], ["updated_at", "2019-08-04 22:08:13.016610"], ["file", "Screen_Shot_2019-08-03_at_11.51.52_PM.png"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:7
+  [1m[36mNote Update (0.4ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2, "file" = $3 WHERE "notes"."id" = $4[0m  [["updated_at", "2019-08-04 22:08:13.025133"], ["arquived", false], ["file", "Screen_Shot_2019-08-03_at_11.51.52_PM.png"], ["id", 22]]
+  ↳ app/controllers/notes_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:9
+Redirected to http://localhost:3000/projects/73
+Completed 302 Found in 19ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 19:08:13 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 53ms (Views: 47.3ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:19:06 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J0HJFaclu5hAb5LGyZoDsj65jxcutqyXzIQTnPt3j6Lzy1sfkcZ6iYTjJuTVQFYb0liKc4ohCtdGv9aU1Udung==", "note"=>{"texto"=>"teste", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0e5f00290 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-53bhcj.png>, @original_filename="Screen Shot 2019-08-03 at 11.51.52 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-03 at 11.51.52 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (1.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (1.1ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at", "file") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["texto", "teste"], ["project_id", 73], ["created_at", "2019-08-05 00:19:06.125245"], ["updated_at", "2019-08-05 00:19:06.125245"], ["file", "Screen_Shot_2019-08-03_at_11.51.52_PM.png"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:7
+  [1m[36mNote Update (0.8ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2, "file" = $3 WHERE "notes"."id" = $4[0m  [["updated_at", "2019-08-05 00:19:06.131849"], ["arquived", false], ["file", "Screen_Shot_2019-08-03_at_11.51.52_PM.png"], ["id", 23]]
+  ↳ app/controllers/notes_controller.rb:7
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:9
+Redirected to http://localhost:3000/projects/73
+Completed 302 Found in 19ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 21:19:06 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 74ms (Views: 67.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 21:23:08 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 93ms (Views: 57.3ms | ActiveRecord: 15.8ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:23:14 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8l5gbdNu7cVepG5KPFY/WfsU3n4g4LZBi6JnXQdoOxAm1PJn5Y0s1Joo2mggjGrwF/XbGoR3EAEBmaJVKVjaLA==", "note"=>{"texto"=>"test", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0f024f658 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-epsr5f.png>, @original_filename="Screen Shot 2019-08-04 at 3.18.35 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 3.18.35 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.7ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at", "file") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["texto", "test"], ["project_id", 73], ["created_at", "2019-08-05 00:23:14.560067"], ["updated_at", "2019-08-05 00:23:14.560067"], ["file", "Screen_Shot_2019-08-04_at_3.18.35_PM.png"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  Rendering text template
+  Rendered text template (0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:11
+  [1m[36mNote Update (0.4ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2, "file" = $3 WHERE "notes"."id" = $4[0m  [["updated_at", "2019-08-05 00:23:14.573175"], ["arquived", false], ["file", "Screen_Shot_2019-08-04_at_3.18.35_PM.png"], ["id", 24]]
+  ↳ app/controllers/notes_controller.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:11
+Completed 500 Internal Server Error in 27ms (Views: 3.1ms | ActiveRecord: 2.8ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - ./test.log):
+  
+app/controllers/notes_controller.rb:14:in `read'
+app/controllers/notes_controller.rb:14:in `create'
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:24:23 -0300
+  
+SyntaxError (/Users/lamorim/Workspace/conslog-test/app/controllers/notes_controller.rb:9: syntax error, unexpected '=', expecting keyword_end
+		=begin
+		 ^
+/Users/lamorim/Workspace/conslog-test/app/controllers/notes_controller.rb:23: syntax error, unexpected '=', expecting keyword_end
+	  	=end
+	  	 ^
+/Users/lamorim/Workspace/conslog-test/app/controllers/notes_controller.rb:41: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/notes_controller.rb:9: syntax error, unexpected '=', expecting keyword_end
+app/controllers/notes_controller.rb:23: syntax error, unexpected '=', expecting keyword_end
+app/controllers/notes_controller.rb:41: syntax error, unexpected end-of-input, expecting keyword_end
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:25:40 -0300
+  
+SyntaxError (/Users/lamorim/Workspace/conslog-test/app/controllers/notes_controller.rb:39: embedded document meets end of file
+/Users/lamorim/Workspace/conslog-test/app/controllers/notes_controller.rb:39: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/notes_controller.rb:39: embedded document meets end of file
+app/controllers/notes_controller.rb:39: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/" for ::1 at 2019-08-04 21:25:56 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 71ms (Views: 57.9ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 21:25:58 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 73ms (Views: 54.5ms | ActiveRecord: 6.5ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:26:05 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7imyZX6rGx2gYKJKLi94V/AwE215ekHlnmNcO7KSDIh/O5ldqavT4jXunwBcMDDWX0cCk/DRKqCqUU7Q2/pmaA==", "note"=>{"texto"=>"yeste", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0e55ec898 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-57xv78.png>, @original_filename="Screen Shot 2019-08-04 at 9.24.45 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.24.45 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.5ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at", "file") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["texto", "yeste"], ["project_id", 73], ["created_at", "2019-08-05 00:26:05.796726"], ["updated_at", "2019-08-05 00:26:05.796726"], ["file", "Screen_Shot_2019-08-04_at_9.24.45_PM.png"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 13ms (Views: 0.9ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:26:28 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NNNzx+nvVXV+LMUMcnCGFBpiZ87LJfDW5AcGZ9PTtRXgWeHN3wyUZLqgcS5uqtO99oNiqm+yVpZuPMNv/eNUKQ==", "note"=>{"texto"=>"yeste", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0e49cc1a8 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-brweqt.png>, @original_filename="Screen Shot 2019-08-04 at 9.24.45 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.24.45 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.5ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at", "file") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["texto", "yeste"], ["project_id", 73], ["created_at", "2019-08-05 00:26:28.897962"], ["updated_at", "2019-08-05 00:26:28.897962"], ["file", "Screen_Shot_2019-08-04_at_9.24.45_PM.png"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 41ms (Views: 0.6ms | ActiveRecord: 11.3ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:26:47 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NNNzx+nvVXV+LMUMcnCGFBpiZ87LJfDW5AcGZ9PTtRXgWeHN3wyUZLqgcS5uqtO99oNiqm+yVpZuPMNv/eNUKQ==", "note"=>{"texto"=>"yeste", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0eb3593f0 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-sc8c7x.png>, @original_filename="Screen Shot 2019-08-04 at 9.24.45 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.24.45 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.7ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at", "file") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["texto", "yeste"], ["project_id", 73], ["created_at", "2019-08-05 00:26:47.970823"], ["updated_at", "2019-08-05 00:26:47.970823"], ["file", "Screen_Shot_2019-08-04_at_9.24.45_PM.png"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 53ms (Views: 0.8ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:28:40 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NNNzx+nvVXV+LMUMcnCGFBpiZ87LJfDW5AcGZ9PTtRXgWeHN3wyUZLqgcS5uqtO99oNiqm+yVpZuPMNv/eNUKQ==", "note"=>{"texto"=>"yeste", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0f10f45a0 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-17l7j20.png>, @original_filename="Screen Shot 2019-08-04 at 9.24.45 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.24.45 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (0.5ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at", "file") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["texto", "yeste"], ["project_id", 73], ["created_at", "2019-08-05 00:28:40.992738"], ["updated_at", "2019-08-05 00:28:40.992738"], ["file", "Screen_Shot_2019-08-04_at_9.24.45_PM.png"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 82ms (Views: 0.7ms | ActiveRecord: 12.3ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:30:01 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NNNzx+nvVXV+LMUMcnCGFBpiZ87LJfDW5AcGZ9PTtRXgWeHN3wyUZLqgcS5uqtO99oNiqm+yVpZuPMNv/eNUKQ==", "note"=>{"texto"=>"yeste", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0eb480738 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-rx5u1c.png>, @original_filename="Screen Shot 2019-08-04 at 9.24.45 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.24.45 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (2.1ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at", "file") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["texto", "yeste"], ["project_id", 73], ["created_at", "2019-08-05 00:30:01.596718"], ["updated_at", "2019-08-05 00:30:01.596718"], ["file", "Screen_Shot_2019-08-04_at_9.24.45_PM.png"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 49ms (Views: 0.6ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 21:32:22 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 95ms (Views: 65.7ms | ActiveRecord: 10.1ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:32:43 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JiWjXgW3jsf00qVPy+L0fL9XN51xWHc3eBXFhUqR47PyrzFUM1RP1jBeEW3XOKHVU7Yy+dXP0XfyLgCNZKECjw==", "note"=>{"texto"=>"testnovo", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0ed9b1318 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-11ib8nx.png>, @original_filename="Screen Shot 2019-08-04 at 9.24.45 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.24.45 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/notes_controller.rb:8
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 21:35:15 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 86ms (Views: 53.7ms | ActiveRecord: 10.3ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:35:22 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9fxJYsXZe7/RWkGxyHVTJ1yhQ8UCe0ElZt5jpqbxnMchdtto8zq6rhXW9ZPUrwaOsEBGoabs52Xs5aauiMF9+w==", "note"=>{"texto"=>"oqiernoqeqer", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0f103aa38 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-1ki9wma.png>, @original_filename="Screen Shot 2019-08-04 at 9.24.45 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.24.45 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/notes_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:10
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/notes_controller.rb:10
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 16ms (Views: 0.8ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:36:17 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9fxJYsXZe7/RWkGxyHVTJ1yhQ8UCe0ElZt5jpqbxnMchdtto8zq6rhXW9ZPUrwaOsEBGoabs52Xs5aauiMF9+w==", "note"=>{"texto"=>"oqiernoqeqer", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0eb3210e0 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-wwlt6d.png>, @original_filename="Screen Shot 2019-08-04 at 9.24.45 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.24.45 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/notes_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:10
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/notes_controller.rb:10
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 44ms (Views: 0.7ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 21:36:23 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 57ms (Views: 51.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2019-08-04 21:36:42 -0300
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 70ms (Views: 58.7ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 21:36:43 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (1.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 86ms (Views: 61.6ms | ActiveRecord: 9.2ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:36:49 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XskK7840/Hzge24EXv/+mL7l6Lfkz6vFcEF1PLgrInXP2yHXGTQ0g3X1U04s4LYZEZL5SW1kwIBEc2fX0UNIlQ==", "note"=>{"texto"=>"test", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0ef4f5a70 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-71mdc8.png>, @original_filename="Screen Shot 2019-08-04 at 3.18.35 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 3.18.35 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[36mNote Create (0.4ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at", "arquived", "file") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["texto", "testing"], ["project_id", 73], ["created_at", "2019-08-05 00:36:49.547326"], ["updated_at", "2019-08-05 00:36:49.547326"], ["arquived", false], ["file", "Screen_Shot_2019-08-03_at_11.51.52_PM.png"]]
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:11
+Redirected to http://localhost:3000/projects/73
+Completed 302 Found in 14ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 21:36:49 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 64ms (Views: 58.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:37:38 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fit+rPiQsDwCdvBCakrgh5l0ee9CXHvjnMP2+egE5VzCoeymznNxLcb6RGB2kLUudZV8i+bL3aMW+DPxxjQEYA==", "note"=>{"texto"=>"test", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0edd1baa8 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-caz334.png>, @original_filename="Screen Shot 2019-08-03 at 11.51.52 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-03 at 11.51.52 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 8.8ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - ./public/uploads/note/file/22/Screen_Shot_2019-08-04_at_9.24.45_PM.png):
+  
+app/controllers/notes_controller.rb:7:in `initialize'
+app/controllers/notes_controller.rb:7:in `open'
+app/controllers/notes_controller.rb:7:in `create'
+Started GET "/projects/73" for ::1 at 2019-08-04 21:38:02 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 118ms (Views: 88.0ms | ActiveRecord: 12.0ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:38:12 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Uo+ypknSOV6dIYgMup7k0/ziKR2nedHKnnqmIegup3aGBSCsfzH4T1mtPC6mRLF6EAMseQPud4oUQWMpxh5GSg==", "note"=>{"texto"=>"teswrgwe", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0eb329830 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-1hgr3y2.png>, @original_filename="Screen Shot 2019-08-03 at 11.51.52 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-03 at 11.51.52 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[36mNote Create (0.5ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at", "arquived", "file") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["texto", "testing"], ["project_id", 73], ["created_at", "2019-08-05 00:38:12.502920"], ["updated_at", "2019-08-05 00:38:12.502920"], ["arquived", false], ["file", "Screen_Shot_2019-08-04_at_9.24.45_PM.png"]]
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:11
+Redirected to http://localhost:3000/projects/73
+Completed 302 Found in 16ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 21:38:12 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 69ms (Views: 62.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:40:03 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SHAIlZs9p1Gr2wktQfOvCFxcrFXJLOL45L9CSPHpxtac+pqfrd5mQG9XvQ9dKfqhsL2pMW27RLhuhIdA39kn6g==", "note"=>{"texto"=>"eqefqefqef", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0ee2b4140 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-1d49pdd.png>, @original_filename="Screen Shot 2019-08-04 at 9.39.48 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.39.48 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[36mNote Create (0.6ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at", "arquived", "file") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["texto", "testing"], ["project_id", 73], ["created_at", "2019-08-05 00:40:03.262680"], ["updated_at", "2019-08-05 00:40:03.262680"], ["arquived", false], ["file", "Screen_Shot_2019-08-04_at_9.24.45_PM.png"]]
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:11
+Redirected to http://localhost:3000/projects/73
+Completed 302 Found in 47ms (ActiveRecord: 12.9ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 21:40:03 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 59ms (Views: 53.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 21:40:53 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YUwcriDycNmplBY42Kgp9z/MxECQDRLYfqUxBu2qWwq1xo6kFhGxyG0YohrEcnxe0y3BJDSatJj0nvQOw5q6Ng==", "note"=>{"texto"=>"eqeqerqe", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd0ef39eb90 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-97494-12416c4.png>, @original_filename="Screen Shot 2019-08-04 at 9.39.48 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.39.48 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/notes_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/notes_controller.rb:11
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 45ms (Views: 0.7ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/" for ::1 at 2019-08-04 23:20:19 -0300
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."created_at" DESC[0m
+  ↳ app/views/projects/index.html.erb:21
+  Rendered projects/index.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 421ms (Views: 393.8ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 23:20:23 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (33.1ms)
+Completed 200 OK in 161ms (Views: 113.1ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 23:20:33 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gm1Hag3P1T66y1lqsU9Kqxuht3QimUB9iSVbN9xiseATf2xS2s8dwS9FZCDDUAIqtNamiqsyKzi9F0nctQrbAA==", "note"=>{"texto"=>"test", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fc8082c80a8 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-43421-15euh79.png>, @original_filename="Screen Shot 2019-08-04 at 9.37.03 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.37.03 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:3
+Unpermitted parameter: :file
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[36mNote Create (1.0ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["texto", "test"], ["project_id", 73], ["created_at", "2019-08-05 02:20:33.141571"], ["updated_at", "2019-08-05 02:20:33.141571"]]
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[36mNote Update (0.4ms)[0m  [1m[33mUPDATE "notes" SET "updated_at" = $1, "arquived" = $2 WHERE "notes"."id" = $3[0m  [["updated_at", "2019-08-05 02:20:33.145980"], ["arquived", false], ["id", 33]]
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:8
+Redirected to http://localhost:3000/projects/73
+Completed 302 Found in 21ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 23:20:33 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 80ms (Views: 70.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 23:41:18 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (1.9ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 108ms (Views: 64.2ms | ActiveRecord: 18.5ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 23:41:35 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s/YLJhnR3//razVz/dkud2+segZWwJRyPGPfi36M+URnfJksLzIe7i/ngVHhA3veg01/YvJXMjK2WBqDULwYeA==", "note"=>{"texto"=>"test", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fc807a34658 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-43421-mf4c74.png>, @original_filename="Screen Shot 2019-08-04 at 9.37.03 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.37.03 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:22
+  [1m[36mNote Create (1.0ms)[0m  [1m[32mINSERT INTO "notes" ("texto", "project_id", "created_at", "updated_at", "arquived", "file") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["texto", "testing"], ["project_id", 73], ["created_at", "2019-08-05 02:41:35.921108"], ["updated_at", "2019-08-05 02:41:35.921108"], ["arquived", false], ["file", "Screen_Shot_2019-08-04_at_9.24.45_PM.png"]]
+  ↳ app/controllers/notes_controller.rb:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notes_controller.rb:24
+Redirected to http://localhost:3000/projects/73
+Completed 302 Found in 20ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/projects/73" for ::1 at 2019-08-04 23:41:35 -0300
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notes" WHERE "notes"."project_id" = $1 AND "notes"."arquived" = $2[0m  [["project_id", 73], ["arquived", false]]
+  ↳ app/controllers/projects_controller.rb:9
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."project_id" = $1 ORDER BY "notes"."created_at" DESC[0m  [["project_id", 73]]
+  ↳ app/views/projects/show.html.erb:27
+  Rendered projects/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 56ms (Views: 50.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 23:50:14 -0300
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W0Sv5gybYGBifmqDhDbQg3IT0pGGfgxCnj9YUyYIXtqPzj3sOnihcaby3qGY7IUqnvLX9SLpqgIUBJ1bCDi/5g==", "note"=>{"texto"=>"test", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fc8094548d0 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-43421-1wivpod.png>, @original_filename="Screen Shot 2019-08-04 at 9.39.48 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.39.48 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/notes_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:24
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/notes_controller.rb:24
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 57ms (Views: 1.4ms | ActiveRecord: 15.2ms)
+
+
+Started POST "/projects/73/notes" for ::1 at 2019-08-04 23:51:39 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W0Sv5gybYGBifmqDhDbQg3IT0pGGfgxCnj9YUyYIXtqPzj3sOnihcaby3qGY7IUqnvLX9SLpqgIUBJ1bCDi/5g==", "note"=>{"texto"=>"test", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fa8d5983b38 @tempfile=#<Tempfile:/var/folders/7p/c4x8gw9968b3ld7sh70xf6tm0000gp/T/RackMultipart20190804-19696-1esdtnc.png>, @original_filename="Screen Shot 2019-08-04 at 9.39.48 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"note[file]\"; filename=\"Screen Shot 2019-08-04 at 9.39.48 PM.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Criar Nota", "project_id"=>"73"}
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/notes_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/notes_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notes_controller.rb:24
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/notes_controller.rb:24
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 106ms (Views: 3.6ms | ActiveRecord: 15.2ms)
+
+
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:22

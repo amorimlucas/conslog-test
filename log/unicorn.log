@@ -1,0 +1,118 @@
+I, [2019-08-02T00:03:16.827662 #99600]  INFO -- : Refreshing Gem list
+I, [2019-08-02T00:03:17.623608 #99600]  INFO -- : unlinking existing socket=/Users/lamorim/Workspace/conslog-test/tmp/unicorn.sock
+I, [2019-08-02T00:03:17.638474 #99600]  INFO -- : listening on addr=/Users/lamorim/Workspace/conslog-test/tmp/unicorn.sock fd=20
+I, [2019-08-02T00:03:17.745924 #99600]  INFO -- : master process ready
+I, [2019-08-02T00:03:17.751268 #99616]  INFO -- : worker=0 ready
+I, [2019-08-02T00:04:37.928927 #99600]  INFO -- : reaped #<Process::Status: pid 99616 exit 0> worker=0
+E, [2019-08-02T00:04:37.929300 #99600] ERROR -- : reaped #<Process::Status: pid 99612 SIGINT (signal 2)> worker=unknown
+I, [2019-08-02T00:04:37.929688 #99600]  INFO -- : master complete
+I, [2019-08-02T00:05:00.534441 #3789]  INFO -- : Refreshing Gem list
+I, [2019-08-02T00:05:01.433420 #3789]  INFO -- : listening on addr=0.0.0.0:3000 fd=12
+I, [2019-08-02T00:05:01.563956 #3789]  INFO -- : master process ready
+I, [2019-08-02T00:05:01.567796 #3875]  INFO -- : worker=0 ready
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET / HTTP/1.1" 200 - 0.7339
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /application.self-e6e1a1d99eaa03f69e3986ddcb55a43e3e1978639223675367dd24bb90c3518d.css?body=1 HTTP/1.1" 200 420080 0.0268
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /rails-ujs.self-2b8935521e2301b06b45bd42e623eb0c0acf76c3a6ba383b7429c6a2884f8c23.js?body=1 HTTP/1.1" 200 27512 0.0072
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1 HTTP/1.1" 200 293431 0.0137
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1 HTTP/1.1" 200 21600 0.0048
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /popper.self-70e1b2b78096eb80eb35ebac513e7a8007033ee3e881919cfdca4ece7779cffd.js?body=1 HTTP/1.1" 200 85463 0.0075
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /bootstrap/util.self-a0c927284f352a57b03b059912bd2ee2561c33c27b791d6ce085cf5adbe7dee5.js?body=1 HTTP/1.1" 200 5837 0.0052
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /bootstrap/alert.self-fb397b96e9b51d772e5707f5c473abacdbf29cb896f737798abc1a7d2f6b9c79.js?body=1 HTTP/1.1" 200 5496 0.0064
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /bootstrap/button.self-c54915a50f56c9007158615d9636e92fb05b2ebbdc900b33ed5a52701450baa0.js?body=1 HTTP/1.1" 200 5630 0.0053
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /bootstrap/carousel.self-23dfaa11deebafc49df9db6a6d16733e594196727a51f41a3180be50600a0dd5.js?body=1 HTTP/1.1" 200 20159 0.0053
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /bootstrap/collapse.self-e34ea6472a55ad646724bc41ea03ccb43aabe7605e899316ad458ad47c21bbea.js?body=1 HTTP/1.1" 200 13158 0.0055
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /bootstrap/dropdown.self-82dfb29c4b6d846eb68eba044853a2d1b98e1ad7fcf9b5b564ae71c3d1202d2d.js?body=1 HTTP/1.1" 200 18161 0.0046
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /bootstrap/modal.self-c426d324514358777867d27a25fad10b6fec353137b8da795a305b0988ce3e6f.js?body=1 HTTP/1.1" 200 19985 0.0033
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /bootstrap/tooltip.self-07c32e7ffc85c7766b3626f1ebb36fff50d7bbd0db98d67a01957fb594430c7d.js?body=1 HTTP/1.1" 200 26476 0.0037
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /bootstrap/popover.self-7230e09abae7f369855a6e32aa734934ee3d3d9907dd72548df3e6a1d0284248.js?body=1 HTTP/1.1" 200 7381 0.0034
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /bootstrap/scrollspy.self-4410bff703a3994390a1dc11352eb60888c3e78861349fa6fe2af2900d5894f0.js?body=1 HTTP/1.1" 200 11620 0.0054
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /bootstrap/tab.self-30df4a05f2141d8d2020aad12d26c9ca9dc83a650a32f9c5b132dbb522ae0f39.js?body=1 HTTP/1.1" 200 8151 0.0326
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /bootstrap/toast.self-e52ce42f63aa24eedfe55eea46da14a788dbb456296c2ee801d77599ea0f1892.js?body=1 HTTP/1.1" 200 7646 0.0058
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1 HTTP/1.1" 200 12 0.0086
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /activestorage.self-1ed4604ac2170045f1ffca4edb81a75246661555e4f9cf682bb8a21825e32e1c.js?body=1 HTTP/1.1" 200 33313 0.0063
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1 HTTP/1.1" 200 38521 0.0065
+127.0.0.1 - - [02/Aug/2019:00:05:22 -0300] "GET /action_cable.self-69fddfcddf4fdef9828648f9330d6ce108b93b82b0b8d3affffc59a114853451.js?body=1 HTTP/1.1" 200 20539 0.0068
+127.0.0.1 - - [02/Aug/2019:00:05:23 -0300] "GET /cable.self-8484513823f404ed0c0f039f75243bfdede7af7919dda65f2e66391252443ce9.js?body=1 HTTP/1.1" 200 293 0.0071
+127.0.0.1 - - [02/Aug/2019:00:05:23 -0300] "GET /notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1 HTTP/1.1" 200 31 0.0040
+127.0.0.1 - - [02/Aug/2019:00:05:23 -0300] "GET /project.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1 HTTP/1.1" 200 31 0.0033
+127.0.0.1 - - [02/Aug/2019:00:05:23 -0300] "GET /application.self-ccae9d30c9b5b7a099395b8b044097486bb3fbdb9444ffca5069f0386a3e7645.js?body=1 HTTP/1.1" 200 778 0.0074
+127.0.0.1 - - [02/Aug/2019:00:05:52 -0300] "GET /projects/73 HTTP/1.1" 200 - 0.1340
+127.0.0.1 - - [02/Aug/2019:00:05:54 -0300] "GET /projects HTTP/1.1" 200 - 0.1139
+E, [2019-08-02T00:06:46.408963 #3789] ERROR -- : reaped #<Process::Status: pid 3857 SIGINT (signal 2)> worker=unknown
+I, [2019-08-02T00:06:46.515378 #3789]  INFO -- : reaped #<Process::Status: pid 3875 exit 0> worker=0
+I, [2019-08-02T00:06:46.515551 #3789]  INFO -- : master complete
+I, [2019-08-02T00:06:50.218988 #8336]  INFO -- : Refreshing Gem list
+I, [2019-08-02T00:06:51.170044 #8336]  INFO -- : listening on addr=0.0.0.0:8080 fd=19
+I, [2019-08-02T00:06:51.295073 #8336]  INFO -- : master process ready
+I, [2019-08-02T00:06:51.298479 #8468]  INFO -- : worker=0 ready
+I, [2019-08-02T00:08:37.955719 #8336]  INFO -- : reaped #<Process::Status: pid 8468 exit 0> worker=0
+I, [2019-08-02T00:08:37.955946 #8336]  INFO -- : master complete
+I, [2019-08-02T00:08:39.993258 #12673]  INFO -- : Refreshing Gem list
+I, [2019-08-02T00:08:40.846081 #12673]  INFO -- : listening on addr=0.0.0.0:8080 fd=20
+I, [2019-08-02T00:08:40.953811 #12673]  INFO -- : master process ready
+I, [2019-08-02T00:08:40.957201 #12688]  INFO -- : worker=0 ready
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET / HTTP/1.1" 200 - 0.6588
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /application.self-e6e1a1d99eaa03f69e3986ddcb55a43e3e1978639223675367dd24bb90c3518d.css?body=1 HTTP/1.1" 200 420080 0.0346
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /rails-ujs.self-2b8935521e2301b06b45bd42e623eb0c0acf76c3a6ba383b7429c6a2884f8c23.js?body=1 HTTP/1.1" 200 27512 0.0072
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1 HTTP/1.1" 200 293431 0.0143
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1 HTTP/1.1" 200 21600 0.0073
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /popper.self-70e1b2b78096eb80eb35ebac513e7a8007033ee3e881919cfdca4ece7779cffd.js?body=1 HTTP/1.1" 200 85463 0.0109
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /bootstrap/util.self-a0c927284f352a57b03b059912bd2ee2561c33c27b791d6ce085cf5adbe7dee5.js?body=1 HTTP/1.1" 200 5837 0.0071
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /bootstrap/alert.self-fb397b96e9b51d772e5707f5c473abacdbf29cb896f737798abc1a7d2f6b9c79.js?body=1 HTTP/1.1" 200 5496 0.0068
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /bootstrap/button.self-c54915a50f56c9007158615d9636e92fb05b2ebbdc900b33ed5a52701450baa0.js?body=1 HTTP/1.1" 200 5630 0.0068
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /bootstrap/carousel.self-23dfaa11deebafc49df9db6a6d16733e594196727a51f41a3180be50600a0dd5.js?body=1 HTTP/1.1" 200 20159 0.0076
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /bootstrap/collapse.self-e34ea6472a55ad646724bc41ea03ccb43aabe7605e899316ad458ad47c21bbea.js?body=1 HTTP/1.1" 200 13158 0.0058
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /bootstrap/dropdown.self-82dfb29c4b6d846eb68eba044853a2d1b98e1ad7fcf9b5b564ae71c3d1202d2d.js?body=1 HTTP/1.1" 200 18161 0.0060
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /bootstrap/modal.self-c426d324514358777867d27a25fad10b6fec353137b8da795a305b0988ce3e6f.js?body=1 HTTP/1.1" 200 19985 0.0058
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /bootstrap/tooltip.self-07c32e7ffc85c7766b3626f1ebb36fff50d7bbd0db98d67a01957fb594430c7d.js?body=1 HTTP/1.1" 200 26476 0.0055
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /bootstrap/popover.self-7230e09abae7f369855a6e32aa734934ee3d3d9907dd72548df3e6a1d0284248.js?body=1 HTTP/1.1" 200 7381 0.0065
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /bootstrap/scrollspy.self-4410bff703a3994390a1dc11352eb60888c3e78861349fa6fe2af2900d5894f0.js?body=1 HTTP/1.1" 200 11620 0.0050
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /bootstrap/tab.self-30df4a05f2141d8d2020aad12d26c9ca9dc83a650a32f9c5b132dbb522ae0f39.js?body=1 HTTP/1.1" 200 8151 0.0049
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /bootstrap/toast.self-e52ce42f63aa24eedfe55eea46da14a788dbb456296c2ee801d77599ea0f1892.js?body=1 HTTP/1.1" 200 7646 0.0066
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1 HTTP/1.1" 200 12 0.0053
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /activestorage.self-1ed4604ac2170045f1ffca4edb81a75246661555e4f9cf682bb8a21825e32e1c.js?body=1 HTTP/1.1" 200 33313 0.0049
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1 HTTP/1.1" 200 38521 0.0045
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /action_cable.self-69fddfcddf4fdef9828648f9330d6ce108b93b82b0b8d3affffc59a114853451.js?body=1 HTTP/1.1" 200 20539 0.0037
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /cable.self-8484513823f404ed0c0f039f75243bfdede7af7919dda65f2e66391252443ce9.js?body=1 HTTP/1.1" 200 293 0.0097
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1 HTTP/1.1" 200 31 0.0030
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /project.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1 HTTP/1.1" 200 31 0.0037
+127.0.0.1 - - [02/Aug/2019:00:08:50 -0300] "GET /application.self-ccae9d30c9b5b7a099395b8b044097486bb3fbdb9444ffca5069f0386a3e7645.js?body=1 HTTP/1.1" 200 778 0.0083
+127.0.0.1 - - [02/Aug/2019:00:08:53 -0300] "GET / HTTP/1.1" 200 - 0.0551
+I, [2019-08-02T00:09:27.453195 #12673]  INFO -- : reaped #<Process::Status: pid 12688 exit 0> worker=0
+I, [2019-08-02T00:09:27.454235 #12673]  INFO -- : master complete
+I, [2019-08-02T00:09:28.702353 #14451]  INFO -- : Refreshing Gem list
+I, [2019-08-02T00:09:29.639678 #14451]  INFO -- : listening on addr=0.0.0.0:3000 fd=20
+I, [2019-08-02T00:09:29.745286 #14451]  INFO -- : master process ready
+I, [2019-08-02T00:09:29.748176 #14518]  INFO -- : worker=0 ready
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET / HTTP/1.1" 200 - 0.6079
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /application.self-e6e1a1d99eaa03f69e3986ddcb55a43e3e1978639223675367dd24bb90c3518d.css?body=1 HTTP/1.1" 200 420080 0.0286
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /rails-ujs.self-2b8935521e2301b06b45bd42e623eb0c0acf76c3a6ba383b7429c6a2884f8c23.js?body=1 HTTP/1.1" 200 27512 0.0076
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1 HTTP/1.1" 200 293431 0.0125
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1 HTTP/1.1" 200 21600 0.0046
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /popper.self-70e1b2b78096eb80eb35ebac513e7a8007033ee3e881919cfdca4ece7779cffd.js?body=1 HTTP/1.1" 200 85463 0.0068
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /bootstrap/util.self-a0c927284f352a57b03b059912bd2ee2561c33c27b791d6ce085cf5adbe7dee5.js?body=1 HTTP/1.1" 200 5837 0.0049
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /bootstrap/alert.self-fb397b96e9b51d772e5707f5c473abacdbf29cb896f737798abc1a7d2f6b9c79.js?body=1 HTTP/1.1" 200 5496 0.0077
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /bootstrap/button.self-c54915a50f56c9007158615d9636e92fb05b2ebbdc900b33ed5a52701450baa0.js?body=1 HTTP/1.1" 200 5630 0.0054
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /bootstrap/carousel.self-23dfaa11deebafc49df9db6a6d16733e594196727a51f41a3180be50600a0dd5.js?body=1 HTTP/1.1" 200 20159 0.0069
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /bootstrap/collapse.self-e34ea6472a55ad646724bc41ea03ccb43aabe7605e899316ad458ad47c21bbea.js?body=1 HTTP/1.1" 200 13158 0.0073
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /bootstrap/dropdown.self-82dfb29c4b6d846eb68eba044853a2d1b98e1ad7fcf9b5b564ae71c3d1202d2d.js?body=1 HTTP/1.1" 200 18161 0.0321
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /bootstrap/modal.self-c426d324514358777867d27a25fad10b6fec353137b8da795a305b0988ce3e6f.js?body=1 HTTP/1.1" 200 19985 0.0065
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /bootstrap/tooltip.self-07c32e7ffc85c7766b3626f1ebb36fff50d7bbd0db98d67a01957fb594430c7d.js?body=1 HTTP/1.1" 200 26476 0.0068
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /bootstrap/popover.self-7230e09abae7f369855a6e32aa734934ee3d3d9907dd72548df3e6a1d0284248.js?body=1 HTTP/1.1" 200 7381 0.0038
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /bootstrap/scrollspy.self-4410bff703a3994390a1dc11352eb60888c3e78861349fa6fe2af2900d5894f0.js?body=1 HTTP/1.1" 200 11620 0.0041
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /bootstrap/tab.self-30df4a05f2141d8d2020aad12d26c9ca9dc83a650a32f9c5b132dbb522ae0f39.js?body=1 HTTP/1.1" 200 8151 0.0057
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /bootstrap/toast.self-e52ce42f63aa24eedfe55eea46da14a788dbb456296c2ee801d77599ea0f1892.js?body=1 HTTP/1.1" 200 7646 0.0051
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1 HTTP/1.1" 200 12 0.0087
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /activestorage.self-1ed4604ac2170045f1ffca4edb81a75246661555e4f9cf682bb8a21825e32e1c.js?body=1 HTTP/1.1" 200 33313 0.0063
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1 HTTP/1.1" 200 38521 0.0065
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /action_cable.self-69fddfcddf4fdef9828648f9330d6ce108b93b82b0b8d3affffc59a114853451.js?body=1 HTTP/1.1" 200 20539 0.0047
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /cable.self-8484513823f404ed0c0f039f75243bfdede7af7919dda65f2e66391252443ce9.js?body=1 HTTP/1.1" 200 293 0.0070
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1 HTTP/1.1" 200 31 0.0031
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /project.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1 HTTP/1.1" 200 31 0.0036
+127.0.0.1 - - [02/Aug/2019:00:09:44 -0300] "GET /application.self-ccae9d30c9b5b7a099395b8b044097486bb3fbdb9444ffca5069f0386a3e7645.js?body=1 HTTP/1.1" 200 778 0.0071
+127.0.0.1 - - [02/Aug/2019:00:21:07 -0300] "GET / HTTP/1.1" 200 - 0.1225
+127.0.0.1 - - [02/Aug/2019:00:21:07 -0300] "GET /favicon.ico HTTP/1.1" 200 - 0.0026
+E, [2019-08-02T00:21:12.553577 #14451] ERROR -- : reaped #<Process::Status: pid 14499 SIGINT (signal 2)> worker=unknown
+E, [2019-08-02T00:21:12.554371 #14451] ERROR -- : reaped #<Process::Status: pid 14498 SIGINT (signal 2)> worker=unknown
+I, [2019-08-02T00:21:12.660750 #14451]  INFO -- : reaped #<Process::Status: pid 14518 exit 0> worker=0
+I, [2019-08-02T00:21:12.661663 #14451]  INFO -- : master complete

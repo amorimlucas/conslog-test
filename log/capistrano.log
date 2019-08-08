@@ -285,3 +285,82 @@
   INFO [229d4b02] Running /usr/bin/env echo "Branch master (at af75c8c27fc2934a5c913d7fc3b554da2227d209) deployed as release 20190808015909 by lamorim" >> /var/www/conslog_test/revisions.log as deploy@34.219.61.127
  DEBUG [229d4b02] Command: cd /var/www/conslog_test/releases && /usr/bin/env echo "Branch master (at af75c8c27fc2934a5c913d7fc3b554da2227d209) deployed as release 20190808015909 by lamorim" >> /var/www/conslog_test/revisions.log
   INFO [229d4b02] Finished in 0.838 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-08-07 23:08:06 -0300 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [26f19097] Running /usr/bin/env mkdir -p /tmp as deploy@34.219.61.127
+ DEBUG [26f19097] Command: /usr/bin/env mkdir -p /tmp
+  INFO [26f19097] Finished in 4.326 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-conslog_test-production-lamorim.sh 0.0%
+  INFO Uploading /tmp/git-ssh-conslog_test-production-lamorim.sh 100.0%
+  INFO [2108b8db] Running /usr/bin/env chmod 700 /tmp/git-ssh-conslog_test-production-lamorim.sh as deploy@34.219.61.127
+ DEBUG [2108b8db] Command: /usr/bin/env chmod 700 /tmp/git-ssh-conslog_test-production-lamorim.sh
+  INFO [2108b8db] Finished in 0.915 seconds with exit status 0 (successful).
+  INFO [9a23fe9a] Running /usr/bin/env git ls-remote https://github.com/amorimlucas/conslog-test.git HEAD as deploy@34.219.61.127
+ DEBUG [9a23fe9a] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-conslog_test-production-lamorim.sh" ; /usr/bin/env git ls-remote https://github.com/amorimlucas/conslog-test.git HEAD )
+ DEBUG [9a23fe9a] 	8952d908b981a7510fb8e26243f080ef56b45d88	HEAD
+  INFO [9a23fe9a] Finished in 1.081 seconds with exit status 0 (successful).
+  INFO [aefbc1cd] Running /usr/bin/env mkdir -p /var/www/conslog_test/shared /var/www/conslog_test/releases as deploy@34.219.61.127
+ DEBUG [aefbc1cd] Command: /usr/bin/env mkdir -p /var/www/conslog_test/shared /var/www/conslog_test/releases
+  INFO [aefbc1cd] Finished in 0.942 seconds with exit status 0 (successful).
+ DEBUG [b3c8da3a] Running [ -f /var/www/conslog_test/current/REVISION ] as deploy@34.219.61.127
+ DEBUG [b3c8da3a] Command: [ -f /var/www/conslog_test/current/REVISION ]
+ DEBUG [b3c8da3a] Finished in 0.822 seconds with exit status 0 (successful).
+ DEBUG [a4c32a5d] Running /usr/bin/env cat /var/www/conslog_test/current/REVISION 2>/dev/null as deploy@34.219.61.127
+ DEBUG [a4c32a5d] Command: /usr/bin/env cat /var/www/conslog_test/current/REVISION 2>/dev/null
+ DEBUG [a4c32a5d] 	af75c8c27fc2934a5c913d7fc3b554da2227d209
+ DEBUG [a4c32a5d] Finished in 0.918 seconds with exit status 0 (successful).
+ DEBUG [ab6593d4] Running [ -f /var/www/conslog_test/repo/HEAD ] as deploy@34.219.61.127
+ DEBUG [ab6593d4] Command: [ -f /var/www/conslog_test/repo/HEAD ]
+ DEBUG [ab6593d4] Finished in 0.939 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/conslog_test/repo
+ DEBUG [7182986c] Running if test ! -d /var/www/conslog_test/repo; then echo "Directory does not exist '/var/www/conslog_test/repo'" 1>&2; false; fi as deploy@34.219.61.127
+ DEBUG [7182986c] Command: if test ! -d /var/www/conslog_test/repo; then echo "Directory does not exist '/var/www/conslog_test/repo'" 1>&2; false; fi
+ DEBUG [7182986c] Finished in 0.904 seconds with exit status 0 (successful).
+  INFO [e190cac7] Running /usr/bin/env git remote set-url origin https://github.com/amorimlucas/conslog-test.git as deploy@34.219.61.127
+ DEBUG [e190cac7] Command: cd /var/www/conslog_test/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-conslog_test-production-lamorim.sh" ; /usr/bin/env git remote set-url origin https://github.com/amorimlucas/conslog-test.git )
+  INFO [e190cac7] Finished in 0.921 seconds with exit status 0 (successful).
+  INFO [f27073e4] Running /usr/bin/env git remote update --prune as deploy@34.219.61.127
+ DEBUG [f27073e4] Command: cd /var/www/conslog_test/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-conslog_test-production-lamorim.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [f27073e4] 	Fetching origin
+ DEBUG [f27073e4] 	From https://github.com/amorimlucas/conslog-test
+   af75c8c..8952d90  master     -> master
+  INFO [f27073e4] Finished in 1.430 seconds with exit status 0 (successful).
+ DEBUG [f57a0856] Running if test ! -d /var/www/conslog_test/repo; then echo "Directory does not exist '/var/www/conslog_test/repo'" 1>&2; false; fi as deploy@34.219.61.127
+ DEBUG [f57a0856] Command: if test ! -d /var/www/conslog_test/repo; then echo "Directory does not exist '/var/www/conslog_test/repo'" 1>&2; false; fi
+ DEBUG [f57a0856] Finished in 0.931 seconds with exit status 0 (successful).
+  INFO [e57bf353] Running /usr/bin/env mkdir -p /var/www/conslog_test/releases/20190808020818 as deploy@34.219.61.127
+ DEBUG [e57bf353] Command: cd /var/www/conslog_test/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-conslog_test-production-lamorim.sh" ; /usr/bin/env mkdir -p /var/www/conslog_test/releases/20190808020818 )
+  INFO [e57bf353] Finished in 0.930 seconds with exit status 0 (successful).
+  INFO [71300a65] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/conslog_test/releases/20190808020818 as deploy@34.219.61.127
+ DEBUG [71300a65] Command: cd /var/www/conslog_test/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-conslog_test-production-lamorim.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/conslog_test/releases/20190808020818 )
+  INFO [71300a65] Finished in 1.208 seconds with exit status 0 (successful).
+ DEBUG [df32a3e1] Running if test ! -d /var/www/conslog_test/repo; then echo "Directory does not exist '/var/www/conslog_test/repo'" 1>&2; false; fi as deploy@34.219.61.127
+ DEBUG [df32a3e1] Command: if test ! -d /var/www/conslog_test/repo; then echo "Directory does not exist '/var/www/conslog_test/repo'" 1>&2; false; fi
+ DEBUG [df32a3e1] Finished in 0.854 seconds with exit status 0 (successful).
+ DEBUG [c7ecef78] Running /usr/bin/env git rev-list --max-count=1 master as deploy@34.219.61.127
+ DEBUG [c7ecef78] Command: cd /var/www/conslog_test/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-conslog_test-production-lamorim.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [c7ecef78] 	8952d908b981a7510fb8e26243f080ef56b45d88
+ DEBUG [c7ecef78] Finished in 0.740 seconds with exit status 0 (successful).
+ DEBUG [154addd5] Running if test ! -d /var/www/conslog_test/releases/20190808020818; then echo "Directory does not exist '/var/www/conslog_test/releases/20190808020818'" 1>&2; false; fi as deploy@34.219.61.127
+ DEBUG [154addd5] Command: if test ! -d /var/www/conslog_test/releases/20190808020818; then echo "Directory does not exist '/var/www/conslog_test/releases/20190808020818'" 1>&2; false; fi
+ DEBUG [154addd5] Finished in 0.821 seconds with exit status 0 (successful).
+  INFO [8a266d2d] Running /usr/bin/env echo "8952d908b981a7510fb8e26243f080ef56b45d88" > REVISION as deploy@34.219.61.127
+ DEBUG [8a266d2d] Command: cd /var/www/conslog_test/releases/20190808020818 && /usr/bin/env echo "8952d908b981a7510fb8e26243f080ef56b45d88" > REVISION
+  INFO [8a266d2d] Finished in 1.065 seconds with exit status 0 (successful).
+  INFO [73dad231] Running /usr/bin/env ln -s /var/www/conslog_test/releases/20190808020818 /var/www/conslog_test/releases/current as deploy@34.219.61.127
+ DEBUG [73dad231] Command: /usr/bin/env ln -s /var/www/conslog_test/releases/20190808020818 /var/www/conslog_test/releases/current
+  INFO [73dad231] Finished in 0.821 seconds with exit status 0 (successful).
+  INFO [ea88cd47] Running /usr/bin/env mv /var/www/conslog_test/releases/current /var/www/conslog_test as deploy@34.219.61.127
+ DEBUG [ea88cd47] Command: /usr/bin/env mv /var/www/conslog_test/releases/current /var/www/conslog_test
+  INFO [ea88cd47] Finished in 0.820 seconds with exit status 0 (successful).
+ DEBUG [227e2453] Running /usr/bin/env ls -x /var/www/conslog_test/releases as deploy@34.219.61.127
+ DEBUG [227e2453] Command: /usr/bin/env ls -x /var/www/conslog_test/releases
+ DEBUG [227e2453] 	20190808015909	20190808020818
+ DEBUG [227e2453] Finished in 0.818 seconds with exit status 0 (successful).
+ DEBUG [1b5b2b31] Running if test ! -d /var/www/conslog_test/releases; then echo "Directory does not exist '/var/www/conslog_test/releases'" 1>&2; false; fi as deploy@34.219.61.127
+ DEBUG [1b5b2b31] Command: if test ! -d /var/www/conslog_test/releases; then echo "Directory does not exist '/var/www/conslog_test/releases'" 1>&2; false; fi
+ DEBUG [1b5b2b31] Finished in 0.918 seconds with exit status 0 (successful).
+  INFO [da229a78] Running /usr/bin/env echo "Branch master (at 8952d908b981a7510fb8e26243f080ef56b45d88) deployed as release 20190808020818 by lamorim" >> /var/www/conslog_test/revisions.log as deploy@34.219.61.127
+ DEBUG [da229a78] Command: cd /var/www/conslog_test/releases && /usr/bin/env echo "Branch master (at 8952d908b981a7510fb8e26243f080ef56b45d88) deployed as release 20190808020818 by lamorim" >> /var/www/conslog_test/revisions.log
+  INFO [da229a78] Finished in 0.917 seconds with exit status 0 (successful).
